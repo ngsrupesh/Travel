@@ -1,0 +1,37 @@
+.step-form {
+  @apply space-y-8;
+}
+
+.form-section {
+  @apply space-y-4;
+}
+
+.section-title {
+  @apply text-xl font-semibold text-gray-900;
+}
+
+.radio-group {
+  @apply flex flex-col space-y-3;
+}
+
+.checkbox-group {
+  @apply flex flex-col space-y-3;
+}
+
+.button-container {
+  @apply flex justify-end mt-8;
+}
+
+::ng-deep {
+  .mat-radio-button {
+    @apply p-2;
+  }
+
+  .mat-checkbox {
+    @apply p-2;
+  }
+
+  .mat-form-field {
+    @apply w-full;
+  }
+}

@@ -1,0 +1,266 @@
+<div class="summary-container">
+  <!-- Summary Header -->
+  <div class="summary-header">
+    <div class="header-content">
+      <h1 class="header-title">
+        <span>Your Trip is Ready!</span>
+        <span class="text-4xl">🎉</span>
+      </h1>
+      <p class="header-description">
+        We've created a personalized itinerary based on your preferences. Review your trip details and get ready for an amazing journey!
+      </p>
+      <div class="summary-actions">
+        <button mat-raised-button color="primary" class="action-button" (click)="downloadItinerary()">
+          <mat-icon>download</mat-icon>
+          Download Itinerary
+        </button>
+        <button mat-raised-button color="accent" class="action-button" (click)="shareItinerary()">
+          <mat-icon>share</mat-icon>
+          Share
+        </button>
+        <button mat-stroked-button color="primary" class="action-button" (click)="navigateToMarketplace()">
+          <mat-icon>shopping_cart</mat-icon>
+          Book Activities
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Safety Ratings Section -->
+  <div class="section-card">
+    <div class="section-header">
+      <mat-icon>security</mat-icon>
+      <h2 class="section-title">Safety Ratings & Local Insights</h2>
+    </div>
+    <div class="section-content">
+      <p class="section-description">
+        Travel smart with verified safety ratings. Our ratings combine local data, crime statistics, and real traveler reviews.
+      </p>
+      
+      <div class="safety-grid">
+        <mat-card *ngFor="let location of plan.destinations" class="safety-card">
+          <mat-card-header>
+            <div class="location-safety-header">
+              <h3 class="location-name">{{location.city}}, {{location.country}}</h3>
+              <div class="safety-score">
+                <div class="score-circle">
+                  <span class="score-value">{{getSafetyRating(location).overall}}</span>
+                  <span class="score-label">Safety Score</span>
+                </div>
+              </div>
+            </div>
+          </mat-card-header>
+
+          <mat-card-content>
+            <div class="safety-categories">
+              <div class="category-item" 
+                   *ngIf="getSafetyRating(location).categories.soloTraveler"
+                   matTooltip="Safe for solo travelers">
+                <mat-icon class="text-green-500">person</mat-icon>
+                <span>Solo-Friendly</span>
+              </div>
+              <div class="category-item" 
+                   *ngIf="getSafetyRating(location).categories.womenSafety"
+                   matTooltip="Highly rated by women travelers">
+                <mat-icon class="text-green-500">female</mat-icon>
+                <span>Women-Safe</span>
+              </div>
+              <div class="category-item" 
+                   *ngIf="getSafetyRating(location).categories.familyFriendly"
+                   matTooltip="Great for families">
+                <mat-icon class="text-green-500">family_restroom</mat-icon>
+                <span>Family-Friendly</span>
+              </div>
+              <div class="category-item" 
+                   *ngIf="getSafetyRating(location).categories.nightSafety"
+                   matTooltip="Safe at night">
+                <mat-icon class="text-green-500">nightlight</mat-icon>
+                <span>Night-Safe</span>
+              </div>
+              <div class="category-item" 
+                   *ngIf="getSafetyRating(location).categories.emergencyServices"
+                   matTooltip="Quick access to emergency services">
+                <mat-icon class="text-green-500">local_hospital</mat-icon>
+                <span>Emergency Ready</span>
+              </div>
+            </div>
+
+            <div class="safety-details">
+              <div class="detail-item">
+                <mat-icon>light</mat-icon>
+                <span>{{getSafetyRating(location).details.lighting}}</span>
+              </div>
+              <div class="detail-item">
+                <mat-icon>local_police</mat-icon>
+                <span>{{getSafetyRating(location).details.policePresence}}</span>
+              </div>
+              <div class="detail-item">
+                <mat-icon>local_hospital</mat-icon>
+                <span>{{getSafetyRating(location).details.hospitalDistance}}</span>
+              </div>
+            </div>
+
+            <div class="safety-tips">
+              <h4 class="tips-title">Safety Tips</h4>
+              <ul class="tips-list">
+                <li *ngFor="let tip of getSafetyRating(location).details.safetyTips" class="tip-item">
+                  <mat-icon>check_circle</mat-icon>
+                  <span>{{tip}}</span>
+                </li>
+              </ul>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+  <div class="summary-grid">
+    <!-- Trip Details -->
+    <div class="section-card">
+      <div class="section-header">
+        <mat-icon>flight_takeoff</mat-icon>
+        <h2 class="section-title">Trip Details</h2>
+      </div>
+      <div class="section-content">
+        <div class="trip-details">
+          <div class="detail-row">
+            <span class="detail-label">Trip Type</span>
+            <span class="detail-value">{{plan.tripType | titlecase}}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Duration</span>
+            <span class="detail-value">
+              {{plan.startDate | date}} - {{plan.endDate | date}}
+            </span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Destinations</span>
+            <span class="detail-value">
+              <mat-chip-set>
+                <mat-chip *ngFor="let dest of plan.destinations">
+                  {{dest.city}}, {{dest.country}}
+                </mat-chip>
+              </mat-chip-set>
+            </span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Dietary Preferences</span>
+            <span class="detail-value">{{plan.preferences.food.dietType}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Transportation Options -->
+    <div class="section-card">
+      <div class="section-header">
+        <mat-icon>{{transportOptions.icon}}</mat-icon>
+        <h2 class="section-title">{{transportOptions.title}}</h2>
+      </div>
+      <div class="section-content">
+        <div class="transport-options">
+          <div *ngFor="let option of transportOptions.options" class="transport-card">
+            <div class="transport-header">
+              <div class="transport-type">
+                <mat-icon class="transport-icon">{{option.icon}}</mat-icon>
+                <span class="transport-name">{{option.type}}</span>
+              </div>
+              <span *ngIf="option.recommended" class="recommended-badge">
+                <mat-icon>verified</mat-icon>
+                Recommended
+              </span>
+            </div>
+            
+            <div class="transport-content">
+              <div class="transport-details">
+                <div class="detail-item">
+                  <mat-icon>schedule</mat-icon>
+                  <span>{{option.estimatedTime}}</span>
+                </div>
+                <div class="detail-item">
+                  <mat-icon>attach_money</mat-icon>
+                  <span>{{option.estimatedCost}}</span>
+                </div>
+                <div *ngIf="option.pickupPoint" class="detail-item">
+                  <mat-icon>departure_board</mat-icon>
+                  <span>{{option.pickupPoint}}</span>
+                </div>
+                <div *ngIf="option.dropoffPoint" class="detail-item">
+                  <mat-icon>place</mat-icon>
+                  <span>{{option.dropoffPoint}}</span>
+                </div>
+              </div>
+
+              <div class="services-list">
+                <span *ngFor="let service of option.services" class="service-chip">
+                  {{service}}
+                </span>
+              </div>
+
+              <div class="transport-footer">
+                <span *ngIf="option.recommendationReason" class="recommendation-reason">
+                  <mat-icon>info</mat-icon>
+                  {{option.recommendationReason}}
+                </span>
+                <button 
+                  *ngIf="option.bookingUrl"
+                  mat-stroked-button 
+                  color="primary"
+                  class="action-button"
+                  [routerLink]="option.bookingUrl">
+                  <mat-icon>shopping_cart</mat-icon>
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Packing List -->
+    <div class="section-card">
+      <div class="section-header">
+        <mat-icon>luggage</mat-icon>
+        <h2 class="section-title">What to Pack</h2>
+      </div>
+      <div class="section-content">
+        <div class="packing-list">
+          <mat-accordion>
+            <mat-expansion-panel *ngFor="let category of packingCategories">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <div class="category-header">
+                    <span class="category-icon">{{category.icon}}</span>
+                    <span class="category-name">{{category.name}}</span>
+                  </div>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+              <div class="items-list">
+                <div *ngFor="let item of category.items" class="item-card">
+                  <div class="item-header">
+                    <span class="item-name">{{item.name}}</span>
+                    <div class="item-status">
+                      <mat-icon [class]="getStatusColor(item.status)">
+                        {{getStatusIcon(item.status)}}
+                      </mat-icon>
+                      <span class="availability-badge" [class.available]="item.localAvailability" [class.not-available]="!item.localAvailability">
+                        {{item.localAvailability ? 'Available Locally' : 'Bring from Home'}}
+                      </span>
+                    </div>
+                  </div>
+                  <p class="item-tip">
+                    <mat-icon>lightbulb</mat-icon>
+                    {{item.tip}}
+                  </p>
+                </div>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

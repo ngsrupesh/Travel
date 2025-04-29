@@ -1,0 +1,27 @@
+.cta-section {
+  @apply py-16 md:py-24 bg-primary-50;
+}
+
+.cta-content {
+  @apply max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8;
+}
+
+.cta-title {
+  @apply text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4;
+}
+
+.cta-description {
+  @apply text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8;
+}
+
+.cta-buttons {
+  @apply flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center;
+}
+
+.primary-button {
+  @apply w-full sm:w-auto px-6 sm:px-8 py-3 text-base sm:text-lg font-medium;
+}
+
+.secondary-button {
+  @apply w-full sm:w-auto px-6 sm:px-8 py-3 text-base sm:text-lg font-medium;
+}

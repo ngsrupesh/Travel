@@ -1,0 +1,88 @@
+<div class="custom-plan-container">
+  <h2 class="section-title">Customize Your Itinerary</h2>
+  <p class="section-description">Drag and drop activities to reorder them or make adjustments to your plan.</p>
+
+  <div class="plan-content" *ngIf="customizedPlan">
+    <div class="daily-itineraries">
+      <mat-card *ngFor="let day of customizedPlan.dailyItineraries; let i = index" class="day-card">
+        <mat-card-header>
+          <mat-card-title>Day {{i + 1}} - {{day.location.city}}</mat-card-title>
+          <mat-card-subtitle>{{day.date | date}}</mat-card-subtitle>
+        </mat-card-header>
+        
+        <mat-card-content>
+          <div 
+            cdkDropList
+            (cdkDropListDropped)="onActivityDrop($event, i)"
+            class="activities-list">
+            <div 
+              *ngFor="let activity of day.activities"
+              cdkDrag
+              class="activity-item">
+              <div class="activity-content">
+                <div class="activity-main">
+                  <span class="activity-time">{{activity.startTime}}</span>
+                  <div class="activity-details">
+                    <div class="activity-name">{{activity.name}}</div>
+                    <div class="activity-info">
+                      <!-- Weather Info -->
+                      <div class="weather-info">
+                        <mat-icon>wb_sunny</mat-icon>
+                        <span>{{getWeatherInfo(activity.startTime)}}</span>
+                      </div>
+                    </div>
+                    <div class="activity-distance" *ngIf="activity.distanceFromPrevious">
+                      <div class="transport-options">
+                        <div class="transport-option">
+                          <mat-icon>directions_walk</mat-icon>
+                          <span>{{formatDistance(activity.distanceFromPrevious)}}</span>
+                        </div>
+                        <div class="transport-option" *ngIf="activity.distanceFromPrevious >= 0.5">
+                          <mat-icon>directions_car</mat-icon>
+                          <span>
+                            {{getDrivingInfo(activity.distanceFromPrevious)}}
+                            <!-- Traffic Info -->
+                            <span class="traffic-info" [class]="getTrafficClass(activity.startTime)">
+                              {{getTrafficInfo(activity.startTime)}}
+                            </span>
+                          </span>
+                        </div>
+                        <div class="transport-option" *ngIf="activity.distanceFromPrevious >= 1">
+                          <mat-icon>train</mat-icon>
+                          <span>{{getTrainInfo(activity.distanceFromPrevious)}}</span>
+                        </div>
+                        <div class="transport-option" *ngIf="isWaterRoute(activity)">
+                          <mat-icon>directions_boat</mat-icon>
+                          <span>{{getFerryInfo(activity.distanceFromPrevious)}}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="activity-right">
+                  <span class="activity-duration">{{activity.duration}} min</span>
+                  <mat-icon cdkDragHandle class="drag-handle">drag_indicator</mat-icon>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="button-container">
+      <button 
+        mat-stroked-button
+        color="primary"
+        (click)="onPrevious()">
+        Back
+      </button>
+      <button 
+        mat-raised-button 
+        color="primary"
+        (click)="finalizePlan()">
+        Finalize Plan
+      </button>
+    </div>
+  </div>
+</div>

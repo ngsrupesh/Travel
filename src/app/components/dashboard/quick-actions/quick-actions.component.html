@@ -1,0 +1,14 @@
+<div class="quick-actions">
+  <h2 class="section-title">Quick Actions</h2>
+  <div class="actions-grid">
+    <button 
+      *ngFor="let action of quickActions"
+      mat-raised-button
+      [color]="action.color"
+      class="action-button"
+      (click)="handleAction(action.action)">
+      <mat-icon>{{action.icon}}</mat-icon>
+      <span>{{action.label}}</span>
+    </button>
+  </div>
+</div>

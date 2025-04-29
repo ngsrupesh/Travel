@@ -1,0 +1,35 @@
+.toolbar {
+  @apply bg-primary text-white shadow-sm h-auto md:h-16;
+}
+
+.menu-button {
+  @apply mr-2;
+}
+
+.app-title {
+  @apply text-lg sm:text-xl font-bold;
+}
+
+.spacer {
+  @apply flex-grow;
+}
+
+.drawer-container {
+  @apply min-h-[calc(100vh-64px)];
+}
+
+.side-nav {
+  @apply w-full sm:w-64;
+}
+
+.nav-item {
+  @apply hover:bg-gray-100 py-2 sm:py-3;
+}
+
+.nav-icon {
+  @apply mr-3;
+}
+
+.main-content {
+  @apply p-4 sm:p-6;
+}

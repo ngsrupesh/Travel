@@ -1,0 +1,23 @@
+.quick-actions {
+  @apply mb-8;
+}
+
+.section-title {
+  @apply text-2xl font-bold mb-4 text-gray-900;
+}
+
+.actions-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4;
+}
+
+.action-button {
+  @apply h-full py-6 px-4 flex flex-col items-center gap-3 text-center;
+}
+
+.action-button mat-icon {
+  @apply text-3xl;
+}
+
+.action-button span {
+  @apply text-sm font-medium;
+}

@@ -1,0 +1,25 @@
+.step-form {
+  @apply space-y-8;
+}
+
+.form-section {
+  @apply space-y-4;
+}
+
+.section-title {
+  @apply text-xl font-semibold text-gray-900;
+}
+
+.checkbox-group {
+  @apply flex flex-col space-y-3;
+}
+
+.button-container {
+  @apply flex justify-end mt-8;
+}
+
+::ng-deep {
+  .mat-checkbox {
+    @apply p-2;
+  }
+}

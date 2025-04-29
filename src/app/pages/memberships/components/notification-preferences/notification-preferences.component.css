@@ -1,0 +1,53 @@
+.preferences-content {
+  @apply max-w-2xl mx-auto;
+}
+
+.preferences-card {
+  @apply bg-white rounded-lg shadow-sm;
+}
+
+.settings-list {
+  @apply divide-y divide-gray-100;
+}
+
+.setting-item {
+  @apply flex items-center justify-between py-4;
+}
+
+.setting-info {
+  @apply flex items-start gap-4;
+}
+
+.setting-icon {
+  @apply p-2 rounded-full bg-primary-50;
+}
+
+.setting-icon mat-icon {
+  @apply text-primary-500;
+}
+
+.setting-details {
+  @apply flex-1;
+}
+
+.setting-title {
+  @apply text-lg font-medium text-gray-900 mb-1;
+}
+
+.setting-description {
+  @apply text-sm text-gray-600;
+}
+
+::ng-deep {
+  .mat-mdc-card {
+    @apply overflow-hidden;
+  }
+
+  .mat-mdc-card-content {
+    @apply p-6;
+  }
+
+  .mat-mdc-slide-toggle {
+    @apply ml-4;
+  }
+}

@@ -1,0 +1,131 @@
+<div class="tab-content-header">
+  <div class="header-content">
+    <h2 class="header-title">
+      <mat-icon>verified_user</mat-icon>
+      Connect with Verified Guides
+    </h2>
+    <p class="header-description">
+      Find certified local experts to make your journey memorable and safe.
+      Whether you're seeking a cultural deep dive, an adventure trek, a food tour, or family-friendly activities — our verified guides are here to help.
+    </p>
+    <div class="header-note">
+      <mat-icon>verified</mat-icon>
+      <span>Every guide is ID-verified and background checked.</span>
+    </div>
+  </div>
+</div>
+
+<div class="guides-container">
+  <!-- Header Section -->
+  <!-- Filters Section -->
+  <div class="filters-section">
+    <div class="filters-grid">
+      <mat-form-field appearance="outline">
+        <mat-label>Experience Level</mat-label>
+        <mat-select [(ngModel)]="filters.experience" multiple>
+          <mat-option *ngFor="let option of experienceOptions" [value]="option.value">
+            {{option.label}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Specialty</mat-label>
+        <mat-select [(ngModel)]="filters.specialties" multiple>
+          <mat-option *ngFor="let specialty of specialtyOptions" [value]="specialty">
+            {{specialty}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Languages</mat-label>
+        <mat-select [(ngModel)]="filters.languages" multiple>
+          <mat-option *ngFor="let language of languageOptions" [value]="language">
+            {{language}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Location</mat-label>
+        <input matInput [(ngModel)]="filters.location" placeholder="City or Region">
+        <mat-icon matSuffix>location_on</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Minimum Rating</mat-label>
+        <mat-select [(ngModel)]="filters.rating">
+          <mat-option [value]="4.5">4.5+</mat-option>
+          <mat-option [value]="4.0">4.0+</mat-option>
+          <mat-option [value]="3.5">3.5+</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <!-- Guides Grid -->
+  <div class="guides-grid" *ngIf="guides.length > 0">
+    <mat-card *ngFor="let guide of guides" class="guide-card">
+      <div class="guide-header">
+        <div class="guide-avatar">
+          <img [src]="guide.avatar" [alt]="guide.name" class="avatar-image">
+          <mat-icon *ngIf="guide.isVerified" class="verified-badge" matTooltip="Verified Guide">verified</mat-icon>
+        </div>
+        <div class="guide-info">
+          <h3 class="guide-name">{{guide.name}}</h3>
+          <p class="guide-location">{{guide.location.city}}, {{guide.location.country}}</p>
+          <div class="guide-stats">
+            <div class="rating">
+              <mat-icon class="star-icon">star</mat-icon>
+              <span>{{guide.rating}}</span>
+              <span>({{guide.reviewCount}})</span>
+            </div>
+            <span>{{guide.yearsExperience}} years exp.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-content">
+        <p class="guide-bio">{{guide.bio}}</p>
+
+        <div class="specialties">
+          <mat-chip-set>
+            <mat-chip *ngFor="let specialty of guide.specialties">
+              {{specialty}}
+            </mat-chip>
+          </mat-chip-set>
+        </div>
+
+        <div class="languages">
+          <mat-icon>translate</mat-icon>
+          <span>{{guide.languages.join(', ')}}</span>
+        </div>
+
+        <div class="availability">
+          <span>Next Available: {{guide.availability.nextAvailable | date}}</span>
+          <span class="price">${{guide.hourlyRate}}/hr</span>
+        </div>
+
+        <div class="guide-actions">
+          <button mat-stroked-button color="primary" (click)="viewProfile(guide.id)">
+            View Profile
+          </button>
+          <button mat-stroked-button color="primary" (click)="contactGuide(guide.id)">
+            Contact Guide
+          </button>
+          <button mat-raised-button color="primary" (click)="bookGuide(guide.id)">
+            Book Now
+          </button>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+
+  <!-- Empty State -->
+  <div class="empty-state" *ngIf="guides.length === 0">
+    <mat-icon class="empty-icon">search_off</mat-icon>
+    <h3 class="empty-title">No verified guides found for your selected destination yet.</h3>
+    <p class="empty-description">Try changing your filters or check back soon — we're adding new guides regularly!</p>
+  </div>
+</div>

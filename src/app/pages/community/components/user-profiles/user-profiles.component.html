@@ -1,0 +1,59 @@
+<div class="user-profiles">
+  <div class="section-header">
+    <h2>Travelers to Follow</h2>
+    <button mat-raised-button color="primary">
+      <mat-icon>person_search</mat-icon>
+      Find More Travelers
+    </button>
+  </div>
+
+  <div class="profiles-grid">
+    <mat-card *ngFor="let traveler of travelers" class="profile-card">
+      <mat-card-header>
+        <img [src]="traveler.avatar" [alt]="traveler.name" mat-card-avatar>
+        <mat-card-title>{{traveler.name}}</mat-card-title>
+        <mat-card-subtitle>{{traveler.username}}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p class="bio">{{traveler.bio}}</p>
+
+        <div class="stats">
+          <div class="stat-item">
+            <span class="stat-value">{{traveler.countriesVisited}}</span>
+            <span class="stat-label">Countries</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">{{traveler.followers}}</span>
+            <span class="stat-label">Followers</span>
+          </div>
+        </div>
+
+        <div class="recent-activity">
+          <mat-icon>flight_takeoff</mat-icon>
+          Recently in {{traveler.recentDestination}}
+        </div>
+
+        <div class="specialties">
+          <h4>Specialties</h4>
+          <mat-chip-set>
+            <mat-chip *ngFor="let specialty of traveler.specialties" color="primary">
+              {{specialty}}
+            </mat-chip>
+          </mat-chip-set>
+        </div>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="followUser(traveler.id)">
+          <mat-icon>person_add</mat-icon>
+          Follow
+        </button>
+        <button mat-button color="primary">
+          <mat-icon>message</mat-icon>
+          Message
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

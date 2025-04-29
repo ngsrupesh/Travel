@@ -1,0 +1,76 @@
+<div class="perks-content">
+  <!-- Header Section -->
+  <div class="header-section">
+    <div class="header-content">
+      <h2 class="header-title">Unlock Exclusive Perks & Member-Only Deals</h2>
+      <p class="header-description">
+        Based on your connected memberships, here are the best perks you can use on your journey.
+      </p>
+      <div class="benefits-list">
+        <div class="benefit-item">
+          <mat-icon>card_giftcard</mat-icon>
+          <span>Enjoy discounts on hotels, flights, car rentals, airport lounges, and more.</span>
+        </div>
+        <div class="benefit-item">
+          <mat-icon>flight_takeoff</mat-icon>
+          <span>See where your loyalty points give you the most value.</span>
+        </div>
+        <div class="benefit-item">
+          <mat-icon>rocket_launch</mat-icon>
+          <span>Get notified when new offers are available through your memberships.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Empty State -->
+  <div class="empty-state" *ngIf="!hasConnectedMemberships">
+    <mat-icon class="empty-icon">card_membership</mat-icon>
+    <h3 class="empty-title">Connect your memberships to unlock special offers and exclusive travel perks.</h3>
+    <button mat-raised-button color="primary">
+      <mat-icon>add</mat-icon>
+      Link Memberships
+    </button>
+  </div>
+
+  <!-- Perks Grid -->
+  <div class="perks-grid" *ngIf="hasConnectedMemberships">
+    <mat-card *ngFor="let perk of perks" class="perk-card">
+      <div class="perk-image">
+        <img [src]="perk.image" [alt]="perk.title">
+        <div class="perk-badge">{{perk.discount}}</div>
+      </div>
+
+      <mat-card-content>
+        <div class="perk-header">
+          <h3 class="perk-title">{{perk.title}}</h3>
+          <mat-chip-set>
+            <mat-chip>{{perk.category}}</mat-chip>
+          </mat-chip-set>
+        </div>
+
+        <p class="perk-description">{{perk.description}}</p>
+
+        <div class="perk-details">
+          <div class="detail-row">
+            <mat-icon class="text-primary-500">card_membership</mat-icon>
+            <span>{{perk.membership}}</span>
+          </div>
+          <div class="detail-row">
+            <mat-icon class="text-primary-500">event</mat-icon>
+            <span>Valid until {{perk.validUntil | date}}</span>
+          </div>
+        </div>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary">
+          Redeem Now
+        </button>
+        <button mat-button color="primary">
+          Learn More
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

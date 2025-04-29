@@ -1,0 +1,113 @@
+.trending-itineraries {
+  @apply space-y-8;
+}
+
+.section-header {
+  @apply flex justify-between items-center mb-8;
+}
+
+.section-header h2 {
+  @apply text-2xl font-bold text-gray-900 flex items-center gap-2;
+}
+
+.share-button {
+  @apply flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors;
+}
+
+.itineraries-grid {
+  @apply grid grid-cols-1 gap-6 mt-8;
+}
+
+.itinerary-card {
+  @apply bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200;
+}
+
+.itinerary-header {
+  @apply flex items-center gap-4 p-6 border-b border-gray-100;
+}
+
+.author-avatar {
+  @apply w-12 h-12 rounded-full overflow-hidden flex-shrink-0;
+}
+
+.author-avatar img {
+  @apply w-full h-full object-cover;
+}
+
+.itinerary-meta {
+  @apply flex-1;
+}
+
+.itinerary-title {
+  @apply text-xl font-bold text-gray-900 mb-1 hover:text-primary-600 transition-colors;
+}
+
+.itinerary-author {
+  @apply text-sm text-gray-600 flex items-center gap-2;
+}
+
+.itinerary-content {
+  @apply p-6;
+}
+
+.stops-container {
+  @apply flex items-center gap-3 text-gray-700 mb-4;
+}
+
+.stop-item {
+  @apply flex items-center;
+}
+
+.stop-arrow {
+  @apply text-gray-400;
+}
+
+.highlights-container {
+  @apply mt-6;
+}
+
+.highlights-title {
+  @apply text-sm font-medium text-gray-600 mb-2;
+}
+
+.highlights-list {
+  @apply flex flex-wrap gap-2;
+}
+
+.highlight-tag {
+  @apply px-3 py-1 bg-primary-50 text-primary-700 rounded-full text-sm font-medium hover:bg-primary-100 transition-colors;
+}
+
+.itinerary-footer {
+  @apply px-6 py-4 bg-gray-50 flex justify-between items-center;
+}
+
+.likes {
+  @apply flex items-center gap-2 text-gray-600;
+}
+
+.action-buttons {
+  @apply flex items-center gap-2;
+}
+
+.action-button {
+  @apply flex items-center gap-2 px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors;
+}
+
+.action-button mat-icon {
+  @apply text-gray-500;
+}
+
+.action-button:hover mat-icon {
+  @apply text-primary-600;
+}
+
+::ng-deep {
+  .mat-mdc-card {
+    @apply rounded-none;
+  }
+
+  .mat-mdc-button-base {
+    @apply rounded-lg;
+  }
+}

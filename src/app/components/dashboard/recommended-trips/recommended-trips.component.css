@@ -1,0 +1,57 @@
+.recommended-trips {
+  @apply mb-8;
+}
+
+.section-title {
+  @apply text-2xl font-bold mb-4 text-gray-900;
+}
+
+.trips-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+}
+
+.trip-card {
+  @apply hover:shadow-lg transition-shadow;
+}
+
+.trip-details {
+  @apply space-y-3 mt-4;
+}
+
+.reason, .budget {
+  @apply flex items-center gap-2 text-gray-700;
+}
+
+.activities {
+  @apply mt-4;
+}
+
+.activities h3 {
+  @apply text-sm font-medium text-gray-600 mb-2;
+}
+
+::ng-deep {
+  .mat-mdc-card {
+    @apply rounded-xl;
+  }
+
+  .mat-mdc-card-header {
+    @apply pb-4;
+  }
+
+  .mat-mdc-card-avatar {
+    @apply text-primary-500;
+  }
+
+  .mat-mdc-chip-set {
+    @apply gap-2;
+  }
+
+  .mat-mdc-chip {
+    @apply text-sm;
+  }
+
+  .mat-mdc-card-actions {
+    @apply p-4;
+  }
+}

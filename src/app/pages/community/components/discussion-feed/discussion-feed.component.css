@@ -1,0 +1,105 @@
+.discussion-feed {
+  @apply space-y-8;
+}
+
+.feed-header {
+  @apply flex justify-between items-center mb-8;
+}
+
+.feed-header h2 {
+  @apply text-2xl font-bold text-gray-900 flex items-center gap-2;
+}
+
+.new-post-button {
+  @apply flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors;
+}
+
+.posts-grid {
+  @apply grid grid-cols-1 gap-6 mt-8;
+}
+
+.post-card {
+  @apply bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200;
+}
+
+.post-header {
+  @apply flex items-center gap-4 p-6 border-b border-gray-100;
+}
+
+.author-avatar {
+  @apply w-12 h-12 rounded-full overflow-hidden flex-shrink-0;
+}
+
+.author-avatar img {
+  @apply w-full h-full object-cover;
+}
+
+.post-meta {
+  @apply flex-1;
+}
+
+.post-title {
+  @apply text-xl font-bold text-gray-900 mb-1 hover:text-primary-600 transition-colors;
+}
+
+.post-author {
+  @apply text-sm text-gray-600 flex items-center gap-2;
+}
+
+.post-time {
+  @apply text-sm text-gray-500;
+}
+
+.post-content {
+  @apply p-6 text-gray-700 leading-relaxed;
+}
+
+.post-footer {
+  @apply px-6 py-4 bg-gray-50 flex flex-wrap items-center gap-4;
+}
+
+.tags-container {
+  @apply flex flex-wrap gap-2;
+}
+
+.tag {
+  @apply px-3 py-1 bg-primary-50 text-primary-700 rounded-full text-sm font-medium hover:bg-primary-100 transition-colors cursor-pointer;
+}
+
+.post-stats {
+  @apply flex items-center gap-6 ml-auto;
+}
+
+.stat {
+  @apply flex items-center gap-1 text-gray-600 hover:text-primary-600 transition-colors cursor-pointer;
+}
+
+.stat-count {
+  @apply text-sm font-medium;
+}
+
+.post-actions {
+  @apply flex items-center gap-2 px-6 py-4 border-t border-gray-100;
+}
+
+.action-button {
+  @apply flex items-center gap-2 px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors;
+}
+
+.action-button mat-icon {
+  @apply text-gray-500;
+}
+
+.action-button:hover mat-icon {
+  @apply text-primary-600;
+}
+
+::ng-deep {
+  .mat-mdc-card {
+    @apply rounded-none;
+  }
+
+  .mat-mdc-button-base {
+    @apply rounded-lg;
+  }
+}

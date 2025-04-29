@@ -1,0 +1,24 @@
+<div class="preferences-content">
+  <mat-card class="preferences-card">
+    <mat-card-content>
+      <div class="settings-list">
+        <div *ngFor="let setting of settings" class="setting-item">
+          <div class="setting-info">
+            <div class="setting-icon">
+              <mat-icon>{{setting.icon}}</mat-icon>
+            </div>
+            <div class="setting-details">
+              <h3 class="setting-title">{{setting.title}}</h3>
+              <p class="setting-description">{{setting.description}}</p>
+            </div>
+          </div>
+          <mat-slide-toggle
+            [(ngModel)]="setting.enabled"
+            (change)="onToggleChange(setting)"
+            color="primary">
+          </mat-slide-toggle>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

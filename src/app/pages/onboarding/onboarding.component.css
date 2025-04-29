@@ -1,0 +1,127 @@
+.onboarding-container {
+  @apply min-h-screen bg-gradient-to-br from-primary-50 to-white p-2 sm:p-4 md:p-6;
+}
+
+.onboarding-content {
+  @apply w-full mx-auto bg-white rounded-xl shadow-lg overflow-hidden;
+}
+
+.stepper-container {
+  @apply p-2 sm:p-4 md:p-6;
+}
+
+.step-content {
+  @apply py-6 px-2 sm:px-4 md:px-6 bg-white rounded-lg;
+}
+
+::ng-deep {
+  /* Responsive stepper header */
+  .mat-horizontal-stepper-header-container {
+    @apply mb-4 sm:mb-6 bg-gray-50 p-2 sm:p-4 rounded-lg;
+    width: 100%;
+    overflow-x: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Make stepper header scrollable on small screens */
+  .mat-stepper-horizontal {
+    @apply overflow-hidden;
+  }
+
+  .mat-horizontal-stepper-header {
+    @apply flex-1 min-w-[200px];
+  }
+
+  .mat-step-header {
+    @apply rounded-lg hover:bg-gray-100 transition-colors duration-200;
+    padding: 8px 16px;
+  }
+
+  /* Step labels */
+  .mat-step-label {
+    @apply text-sm sm:text-base whitespace-normal text-center;
+    width: 100%;
+    line-height: 1.2;
+  }
+
+  .mat-step-text-label {
+    @apply text-center w-full;
+  }
+
+  .mat-step-header .mat-step-icon {
+    @apply bg-primary-100 text-primary-700 h-6 w-6 sm:h-8 sm:w-8;
+  }
+
+  .mat-step-header .mat-step-icon-selected {
+    @apply bg-primary-600 text-white;
+  }
+
+  .mat-step-header .mat-step-label {
+    @apply text-gray-600;
+  }
+
+  .mat-step-header .mat-step-label.mat-step-label-selected {
+    @apply text-primary-700 font-medium;
+  }
+
+  .mat-stepper-horizontal-line {
+    @apply border-t-2 border-gray-200 flex-shrink-0;
+    min-width: 20px;
+  }
+
+  .mat-horizontal-content-container {
+    @apply p-0;
+  }
+
+  .mat-horizontal-stepper-content {
+    @apply mb-4 sm:mb-6;
+  }
+
+  /* Progress indicator styles */
+  .mat-step-icon-content {
+    @apply text-sm sm:text-base font-medium;
+  }
+
+  /* Ensure step content is full width */
+  .mat-horizontal-content-container,
+  .mat-horizontal-stepper-wrapper {
+    @apply w-full;
+  }
+
+  /* Form elements responsive layout */
+  .mat-form-field {
+    @apply w-full;
+  }
+
+  /* Responsive grid for form groups */
+  .mat-radio-group, .checkbox-group {
+    @apply grid grid-cols-1 gap-2 sm:gap-4;
+  }
+
+  @screen sm {
+    .mat-radio-group, .checkbox-group {
+      @apply grid-cols-2;
+    }
+  }
+
+  /* Adjust form controls spacing */
+  .mat-radio-button, .mat-checkbox {
+    @apply mb-1 sm:mb-2;
+  }
+
+  /* Make form sections more compact on mobile */
+  .form-section {
+    @apply mb-4 sm:mb-6;
+  }
+
+  /* Adjust text sizes for better readability */
+  .section-title {
+    @apply text-lg sm:text-xl mb-2 sm:mb-4;
+  }
+
+  /* Better touch targets for mobile */
+  .mat-radio-button, .mat-checkbox {
+    @apply min-h-[44px] flex items-center;
+  }
+}

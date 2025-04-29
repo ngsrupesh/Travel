@@ -1,0 +1,65 @@
+.trip-type-container {
+  @apply space-y-6;
+}
+
+.section-title {
+  @apply text-xl font-semibold text-gray-900;
+}
+
+.section-description {
+  @apply text-gray-600 text-lg;
+}
+
+.trip-types-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8;
+}
+
+.trip-type-card {
+  @apply cursor-pointer transition-all duration-200 hover:shadow-lg;
+}
+
+.trip-type-card.selected {
+  @apply ring-2 ring-primary-500 bg-primary-50;
+}
+
+.type-icon {
+  @apply text-4xl text-primary-500 mb-4;
+}
+
+.type-name {
+  @apply text-xl font-semibold text-gray-900 mb-2;
+}
+
+.type-description {
+  @apply text-gray-600;
+}
+
+.travel-companions {
+  @apply mt-8 bg-primary-50 rounded-lg p-6;
+}
+
+.companions-title {
+  @apply text-lg font-semibold text-gray-900 mb-4;
+}
+
+.companions-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 gap-4;
+}
+
+.companion-checkbox {
+  @apply text-base;
+}
+
+.button-container {
+  @apply flex justify-end mt-8;
+}
+
+::ng-deep {
+  .mat-checkbox {
+    @apply p-2;
+  }
+  
+  .mat-tooltip {
+    @apply text-sm bg-gray-900 px-3 py-2;
+  }
+}

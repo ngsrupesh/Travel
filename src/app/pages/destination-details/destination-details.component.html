@@ -1,0 +1,72 @@
+<div class="destination-container">
+  <div *ngIf="loading" class="loading-state">
+    <mat-spinner diameter="40"></mat-spinner>
+    <p>Loading destination details...</p>
+  </div>
+
+  <div *ngIf="error" class="error-state">
+    <mat-icon color="warn">error</mat-icon>
+    <p>{{error}}</p>
+  </div>
+
+  <div *ngIf="!loading && !error && destination" class="destination-content">
+    <!-- Hero Section -->
+    <div class="hero-section" [style.backgroundImage]="'url(' + destination.image + ')'">
+      <div class="hero-overlay">
+        <h1 class="destination-title">{{destination.name}}</h1>
+        <p class="destination-description">{{destination.description}}</p>
+      </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="quick-stats">
+      <div class="stat-item">
+        <mat-icon>star</mat-icon>
+        <span class="stat-value">{{destination.rating}}</span>
+        <span class="stat-label">Rating</span>
+      </div>
+      <div class="stat-item">
+        <mat-icon>group</mat-icon>
+        <span class="stat-value">{{destination.visitorsCount}}</span>
+        <span class="stat-label">Visitors</span>
+      </div>
+      <div class="stat-item">
+        <mat-icon>hotel</mat-icon>
+        <span class="stat-value">{{destination.hotels}}</span>
+        <span class="stat-label">Hotels</span>
+      </div>
+    </div>
+
+    <!-- Main Content Tabs -->
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+      <mat-tab label="Map & Location">
+        <app-location-map
+          [latitude]="destination.location.latitude"
+          [longitude]="destination.location.longitude"
+          [places]="destination.nearbyPlaces">
+        </app-location-map>
+      </mat-tab>
+
+      <mat-tab label="Weather">
+        <app-weather-info
+          [latitude]="destination.location.latitude"
+          [longitude]="destination.location.longitude">
+        </app-weather-info>
+      </mat-tab>
+
+      <mat-tab label="Reviews">
+        <app-user-reviews
+          [destinationId]="destination.id"
+          [reviews]="destination.reviews">
+        </app-user-reviews>
+      </mat-tab>
+
+      <mat-tab label="Nearby Places">
+        <app-nearby-places
+          [latitude]="destination.location.latitude"
+          [longitude]="destination.location.longitude">
+        </app-nearby-places>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

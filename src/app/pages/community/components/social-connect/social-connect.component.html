@@ -1,0 +1,61 @@
+<div class="social-connect">
+  <!-- Header Section -->
+  <div class="header-section">
+    <div class="header-content">
+      <h2 class="header-title">🤝 Connect Your Social Media Accounts</h2>
+      <p class="header-description">
+        Link your social media accounts to easily share your travel plans, sync photos, and connect with fellow explorers.
+        Stay social while you roam the world — invite friends, share your journey, and create memories together.
+      </p>
+      <div class="privacy-note">
+        <mat-icon>lock</mat-icon>
+        <span>Your privacy is important. You choose what to share — we never post without your permission.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Platforms Grid -->
+  <div class="platforms-grid">
+    <mat-card *ngFor="let platform of platforms" class="platform-card">
+      <div class="platform-header">
+        <div class="platform-icon" [class]="platform.color">
+          <mat-icon>{{platform.icon}}</mat-icon>
+        </div>
+        <div class="platform-info">
+          <h3 class="platform-name">{{platform.name}}</h3>
+          <span class="platform-status" *ngIf="platform.isConnected">Connected</span>
+        </div>
+      </div>
+
+      <div class="platform-content">
+        <div class="sharing-options">
+          <h4 class="options-title">What you can share:</h4>
+          <mat-chip-set>
+            <mat-chip *ngFor="let option of platform.sharingOptions">
+              {{option}}
+            </mat-chip>
+          </mat-chip-set>
+        </div>
+
+        <div class="platform-actions">
+          <button 
+            *ngIf="!platform.isConnected"
+            mat-raised-button 
+            color="primary"
+            (click)="connectPlatform(platform)">
+            <mat-icon>link</mat-icon>
+            Connect {{platform.name}}
+          </button>
+          <button 
+            *ngIf="platform.isConnected"
+            mat-stroked-button 
+            color="warn"
+            (click)="disconnectPlatform(platform)">
+            <mat-icon>link_off</mat-icon>
+            Disconnect
+          </button>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

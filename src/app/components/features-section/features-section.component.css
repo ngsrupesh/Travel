@@ -1,0 +1,31 @@
+.features-section {
+  @apply py-16 md:py-24 bg-white;
+}
+
+.features-content {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.section-title {
+  @apply text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-8 md:mb-12;
+}
+
+.features-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8;
+}
+
+.feature-card {
+  @apply flex flex-col items-center text-center p-4 sm:p-6 rounded-lg transition-all hover:shadow-lg bg-white;
+}
+
+.feature-icon {
+  @apply text-primary text-3xl sm:text-4xl mb-3 sm:mb-4;
+}
+
+.feature-title {
+  @apply text-lg sm:text-xl font-semibold text-gray-900 mb-2;
+}
+
+.feature-description {
+  @apply text-sm sm:text-base text-gray-600;
+}

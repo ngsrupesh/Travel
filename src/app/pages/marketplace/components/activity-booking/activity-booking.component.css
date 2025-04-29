@@ -1,0 +1,117 @@
+.activity-booking {
+  @apply space-y-6;
+}
+
+.booking-header {
+  @apply flex justify-between items-center mb-6;
+}
+
+.booking-header h2 {
+  @apply text-2xl font-bold text-gray-900;
+}
+
+.filters {
+  @apply flex gap-2;
+}
+
+.activities-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+}
+
+.activity-card {
+  @apply relative hover:shadow-lg transition-shadow;
+}
+
+.image-container {
+  @apply relative w-full h-48;
+}
+
+.activity-image {
+  @apply w-full h-full object-cover;
+}
+
+.image-placeholder {
+  @apply absolute inset-0 flex flex-col items-center justify-center bg-gray-100 text-gray-400;
+}
+
+.image-placeholder mat-icon {
+  @apply text-4xl mb-2;
+}
+
+.discount-badge {
+  @apply absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold;
+}
+
+.activity-info {
+  @apply space-y-4;
+}
+
+.category-badge {
+  @apply inline-block bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.activity-name {
+  @apply text-xl font-bold text-gray-900;
+}
+
+.activity-location {
+  @apply flex items-center gap-1 text-gray-600;
+}
+
+.activity-rating {
+  @apply flex items-center gap-1;
+}
+
+.star-icon {
+  @apply text-yellow-500;
+}
+
+.activity-description {
+  @apply text-gray-600;
+}
+
+.included-items {
+  @apply space-y-2;
+}
+
+.included-items h4 {
+  @apply text-sm font-medium text-gray-700;
+}
+
+.included-items ul {
+  @apply space-y-1;
+}
+
+.included-items li {
+  @apply flex items-center gap-2 text-sm text-gray-600;
+}
+
+.included-items mat-icon {
+  @apply text-green-500 text-base;
+}
+
+.booking-details {
+  @apply flex justify-between items-center mt-6;
+}
+
+.price-duration {
+  @apply flex flex-col;
+}
+
+.price {
+  @apply text-2xl font-bold text-gray-900;
+}
+
+.duration {
+  @apply flex items-center gap-1 text-sm text-gray-600;
+}
+
+::ng-deep {
+  .mat-mdc-card {
+    @apply rounded-none;
+  }
+
+  .mat-mdc-card-content {
+    @apply p-6;
+  }
+}

@@ -1,0 +1,30 @@
+import { Routes } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
+import { OnboardingComponent } from './pages/onboarding/onboarding.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ItineraryComponent } from './pages/itinerary/itinerary.component';
+import { DestinationDetailsComponent } from './pages/destination-details/destination-details.component';
+import { CommunityComponent } from './pages/community/community.component';
+import { MarketplaceComponent } from './pages/marketplace/marketplace.component';
+import { PaymentComponent } from './pages/payment/payment.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { NotificationsComponent } from './pages/notifications/notifications.component';
+import { MembershipsComponent } from './pages/memberships/memberships.component';
+import { LoginComponent } from './pages/login/login.component';
+import { CorporateLoginComponent } from './pages/corporate-login/corporate-login.component';
+
+export const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'onboarding', component: OnboardingComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'corporate-login', component: CorporateLoginComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'itinerary', component: ItineraryComponent },
+  { path: 'destination/:id', component: DestinationDetailsComponent },
+  { path: 'community', component: CommunityComponent },
+  { path: 'marketplace', component: MarketplaceComponent },
+  { path: 'payment', component: PaymentComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'notifications', component: NotificationsComponent },
+  { path: 'memberships', component: MembershipsComponent }
+];

@@ -1,0 +1,81 @@
+.recommendations-container {
+  @apply space-y-6;
+}
+
+.section-title {
+  @apply text-2xl font-bold text-gray-900;
+}
+
+.section-description {
+  @apply text-gray-600 text-lg;
+}
+
+.recommendations-content {
+  @apply mt-8 space-y-8;
+}
+
+.trip-summary {
+  @apply mb-8;
+}
+
+.summary-item {
+  @apply flex items-center gap-2 py-2;
+}
+
+.summary-item mat-icon {
+  @apply text-primary-500;
+}
+
+.generate-section {
+  @apply flex justify-center py-8;
+}
+
+.generate-section button {
+  @apply flex items-center gap-2 px-6 py-3;
+}
+
+.loading-section {
+  @apply flex flex-col items-center gap-4 py-8;
+}
+
+.loading-section p {
+  @apply text-gray-600 mt-4;
+}
+
+.recommendations-list {
+  @apply space-y-4;
+}
+
+.activities-list {
+  @apply space-y-3 mt-4;
+}
+
+.activity-item {
+  @apply flex items-center gap-4 py-2 border-b border-gray-100;
+}
+
+.activity-time {
+  @apply text-sm text-gray-500 font-medium w-32;
+}
+
+.activity-name {
+  @apply text-gray-900;
+}
+
+.button-container {
+  @apply flex justify-between mt-8;
+}
+
+::ng-deep {
+  .mat-mdc-card {
+    @apply p-6;
+  }
+
+  .mat-mdc-card-header {
+    @apply pb-4;
+  }
+
+  .mat-mdc-card-title {
+    @apply text-lg font-semibold;
+  }
+}

@@ -1,0 +1,17 @@
+<section class="testimonials-section">
+  <div class="testimonials-content">
+    <h2 class="section-title">What Our Travelers Say</h2>
+    <div class="testimonials-grid">
+      <mat-card *ngFor="let testimonial of testimonials" class="testimonial-card">
+        <mat-card-content>
+          <img [src]="testimonial.avatar" [alt]="testimonial.author" class="avatar">
+          <p class="quote">"{{testimonial.quote}}"</p>
+          <div class="author-info">
+            <p class="author-name">{{testimonial.author}}</p>
+            <p class="author-role">{{testimonial.role}}</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>

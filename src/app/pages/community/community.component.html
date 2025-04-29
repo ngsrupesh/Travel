@@ -1,0 +1,58 @@
+<div class="community-container">
+  <h1 class="community-title">Travel Community</h1>
+  
+  <mat-tab-group 
+    mat-stretch-tabs="false" 
+    mat-align-tabs="start"
+    [(selectedIndex)]="activeTabIndex"
+    (selectedIndexChange)="onTabChange($event)"
+    animationDuration="200ms">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="tab-icon">forum</mat-icon>
+        <span class="tab-label">Discussions</span>
+      </ng-template>
+      <app-discussion-feed></app-discussion-feed>
+    </mat-tab>
+    
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="tab-icon">trending_up</mat-icon>
+        <span class="tab-label">Trending Itineraries</span>
+      </ng-template>
+      <app-trending-itineraries></app-trending-itineraries>
+    </mat-tab>
+    
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="tab-icon">groups</mat-icon>
+        <span class="tab-label">Travel Groups</span>
+      </ng-template>
+      <app-travel-groups></app-travel-groups>
+    </mat-tab>
+    
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="tab-icon">verified_user</mat-icon>
+        <span class="tab-label">Verified Guides</span>
+      </ng-template>
+      <app-verified-guides></app-verified-guides>
+    </mat-tab>
+    
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="tab-icon">share</mat-icon>
+        <span class="tab-label">Social Connect</span>
+      </ng-template>
+      <app-social-connect></app-social-connect>
+    </mat-tab>
+    
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="tab-icon">person_search</mat-icon>
+        <span class="tab-label">Travelers to Follow</span>
+      </ng-template>
+      <app-user-profiles></app-user-profiles>
+    </mat-tab>
+  </mat-tab-group>
+</div>

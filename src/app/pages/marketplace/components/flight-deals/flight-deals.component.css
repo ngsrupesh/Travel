@@ -1,0 +1,121 @@
+.flight-deals {
+  @apply space-y-6;
+}
+
+.deals-header {
+  @apply flex justify-between items-center mb-6;
+}
+
+.deals-header h2 {
+  @apply text-2xl font-bold text-gray-900;
+}
+
+.filters {
+  @apply flex gap-2;
+}
+
+.deals-grid {
+  @apply grid grid-cols-1 gap-6;
+}
+
+.flight-card {
+  @apply relative hover:shadow-lg transition-shadow;
+}
+
+.image-container {
+  @apply relative w-full h-48;
+}
+
+.flight-image {
+  @apply w-full h-full object-cover;
+}
+
+.image-placeholder {
+  @apply absolute inset-0 flex flex-col items-center justify-center bg-gray-100 text-gray-400;
+}
+
+.image-placeholder mat-icon {
+  @apply text-4xl mb-2;
+}
+
+.discount-badge {
+  @apply absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold;
+}
+
+.flight-info {
+  @apply space-y-6;
+}
+
+.route-info {
+  @apply flex items-center justify-between gap-4;
+}
+
+.location {
+  @apply flex flex-col items-center text-center;
+}
+
+.city {
+  @apply text-lg font-bold text-gray-900;
+}
+
+.country {
+  @apply text-sm text-gray-600;
+}
+
+.time {
+  @apply text-sm font-medium text-gray-700 mt-1;
+}
+
+.flight-details {
+  @apply flex flex-col items-center flex-1;
+}
+
+.airline {
+  @apply text-sm font-medium text-gray-600 mb-2;
+}
+
+.route-line {
+  @apply relative flex items-center w-full;
+}
+
+.line {
+  @apply absolute w-full h-px bg-gray-300;
+}
+
+.route-line mat-icon {
+  @apply relative bg-white text-primary-500 transform -rotate-90;
+}
+
+.duration {
+  @apply text-sm font-medium text-gray-700 mt-2;
+}
+
+.stops {
+  @apply text-xs text-gray-500;
+}
+
+.booking-info {
+  @apply flex justify-between items-center mt-6;
+}
+
+.price-class {
+  @apply flex flex-col items-end;
+}
+
+.price {
+  @apply text-2xl font-bold text-gray-900;
+}
+
+.class {
+  @apply text-sm text-gray-600;
+}
+
+::ng-deep {
+  .mat-mdc-card {
+    @apply rounded-none;
+  }
+
+  .mat-mdc-card-content {
+    @apply p-6;
+  }
+}

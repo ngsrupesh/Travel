@@ -1,0 +1,54 @@
+<div class="onboarding-container">
+  <div class="onboarding-content">
+    <div class="stepper-container">
+      <mat-horizontal-stepper [linear]="true" #stepper>
+        <!-- Basic Info Step -->
+        <mat-step [stepControl]="basicInfoForm">
+          <ng-template matStepLabel>Basic Info</ng-template>
+          <div class="step-content">
+            <app-basic-info-step [formGroup]="basicInfoForm" (nextStep)="stepper.next()"></app-basic-info-step>
+          </div>
+        </mat-step>
+
+        <!-- Travel Preferences Step -->
+        <mat-step [stepControl]="travelPreferencesForm">
+          <ng-template matStepLabel>Travel Preferences</ng-template>
+          <div class="step-content">
+            <app-travel-preferences-step [formGroup]="travelPreferencesForm" (nextStep)="stepper.next()"></app-travel-preferences-step>
+          </div>
+        </mat-step>
+
+        <!-- Activities & Interests Step -->
+        <mat-step [stepControl]="activitiesForm">
+          <ng-template matStepLabel>Activities & Interests</ng-template>
+          <div class="step-content">
+            <app-activities-step [formGroup]="activitiesForm" (nextStep)="stepper.next()"></app-activities-step>
+          </div>
+        </mat-step>
+
+        <!-- Special Requirements Step -->
+        <mat-step [stepControl]="requirementsForm">
+          <ng-template matStepLabel>Special Requirements</ng-template>
+          <div class="step-content">
+            <app-requirements-step [formGroup]="requirementsForm" (nextStep)="stepper.next()"></app-requirements-step>
+          </div>
+        </mat-step>
+
+        <!-- Summary Step -->
+        <mat-step>
+          <ng-template matStepLabel>Review</ng-template>
+          <div class="step-content">
+            <app-summary-step 
+              [basicInfo]="basicInfoForm.value"
+              [travelPreferences]="travelPreferencesForm.value"
+              [activities]="activitiesForm.value"
+              [requirements]="requirementsForm.value"
+              (submit)="onSubmit()"
+              (edit)="stepper.previous()">
+            </app-summary-step>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </div>
+  </div>
+</div>

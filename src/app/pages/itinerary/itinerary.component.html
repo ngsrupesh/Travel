@@ -1,0 +1,79 @@
+<div class="itinerary-container">
+  <div class="itinerary-content">
+    <h1 class="page-title">Create Your Perfect Itinerary</h1>
+    
+    <mat-horizontal-stepper [linear]="true" #stepper class="itinerary-stepper">
+      <!-- Trip Type Selection -->
+      <mat-step [stepControl]="tripTypeForm">
+        <ng-template matStepLabel>Trip Type</ng-template>
+        <app-trip-type
+          [formGroup]="tripTypeForm"
+          (tripTypeSelected)="onTripTypeSelected($event)"
+          (nextStep)="stepper.next()">
+        </app-trip-type>
+      </mat-step>
+
+      <!-- Date Selection -->
+      <mat-step [stepControl]="dateSelectionForm">
+        <ng-template matStepLabel>Travel Dates</ng-template>
+        <app-date-selection
+          [formGroup]="dateSelectionForm"
+          (datesSelected)="onDatesSelected($event)"
+          (nextStep)="stepper.next()"
+          (prevStep)="stepper.previous()">
+        </app-date-selection>
+      </mat-step>
+
+      <!-- Location Selection -->
+      <mat-step [stepControl]="locationForm">
+        <ng-template matStepLabel>Destinations</ng-template>
+        <app-location-picker
+          [formGroup]="locationForm"
+          (locationsSelected)="onLocationsSelected($event)"
+          (nextStep)="stepper.next()"
+          (prevStep)="stepper.previous()">
+        </app-location-picker>
+      </mat-step>
+
+      <!-- Food Options -->
+      <mat-step [stepControl]="foodOptionsForm">
+        <ng-template matStepLabel>Food Options</ng-template>
+        <app-food-options
+          [formGroup]="foodOptionsForm"
+          (nextStep)="stepper.next()"
+          (prevStep)="stepper.previous()">
+        </app-food-options>
+      </mat-step>
+
+      <!-- AI Recommendations -->
+      <mat-step>
+        <ng-template matStepLabel>AI Suggestions</ng-template>
+        <app-ai-recommendations
+          [tripType]="tripTypeForm.value.tripType"
+          [dates]="dateSelectionForm.value"
+          [locations]="locationForm.value.destinations"
+          (nextStep)="stepper.next()"
+          (prevStep)="stepper.previous()"
+          (generatePlan)="generateItinerary()">
+        </app-ai-recommendations>
+      </mat-step>
+
+      <!-- Custom Plan -->
+      <mat-step>
+        <ng-template matStepLabel>Customize</ng-template>
+        <ng-container *ngIf="generatedPlan">
+          <app-custom-plan
+            *ngIf="!showSummary"
+            [initialPlan]="generatedPlan"
+            (planFinalized)="finalizePlan($event)"
+            (prevStep)="stepper.previous()">
+          </app-custom-plan>
+          <app-trip-summary
+            *ngIf="showSummary"
+            [plan]="generatedPlan">
+          </app-trip-summary>
+        </ng-container>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+</div>

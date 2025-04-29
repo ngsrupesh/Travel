@@ -1,0 +1,31 @@
+<form [formGroup]="formGroup" class="step-form">
+  <!-- Dietary Preferences -->
+  <div class="form-section">
+    <h2 class="section-title">Do you have any dietary preferences?</h2>
+    <mat-radio-group formControlName="dietaryPreferences" class="radio-group">
+      <mat-radio-button value="vegetarian">Vegetarian</mat-radio-button>
+      <mat-radio-button value="vegan">Vegan</mat-radio-button>
+      <mat-radio-button value="halal">Halal</mat-radio-button>
+      <mat-radio-button value="kosher">Kosher</mat-radio-button>
+      <mat-radio-button value="none">No Preferences</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <!-- Accessibility Needs -->
+  <div class="form-section">
+    <h2 class="section-title">Do you have any accessibility requirements?</h2>
+    <div formGroupName="accessibility" class="checkbox-group">
+      <mat-checkbox formControlName="wheelchair">Wheelchair Accessibility</mat-checkbox>
+      <mat-checkbox formControlName="visualImpairment">Visual Impairment-Friendly</mat-checkbox>
+      <mat-checkbox formControlName="hearingImpairment">Hearing Impairment-Friendly</mat-checkbox>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <button mat-raised-button color="primary" 
+            [disabled]="!formGroup.valid"
+            (click)="onNext()">
+      Next
+    </button>
+  </div>
+</form>

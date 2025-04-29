@@ -1,0 +1,57 @@
+.travel-history {
+  @apply mb-8 mt-12;
+}
+
+.section-title {
+  @apply text-2xl font-bold mb-4 text-gray-900;
+}
+
+.history-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+}
+
+.history-card {
+  @apply hover:shadow-lg transition-shadow;
+}
+
+.history-details {
+  @apply space-y-4 mt-4;
+}
+
+.rating {
+  @apply flex items-center gap-2 text-yellow-500 font-medium;
+}
+
+.star-icon {
+  @apply text-yellow-500;
+}
+
+.moments {
+  @apply mt-4;
+}
+
+.moments h3 {
+  @apply text-sm font-medium text-gray-600 mb-2;
+}
+
+::ng-deep {
+  .mat-mdc-card {
+    @apply rounded-xl;
+  }
+
+  .mat-mdc-card-header {
+    @apply pb-4;
+  }
+
+  .mat-mdc-card-avatar {
+    @apply text-primary-500;
+  }
+
+  .mat-mdc-chip-set {
+    @apply gap-2;
+  }
+
+  .mat-mdc-chip {
+    @apply text-sm;
+  }
+}

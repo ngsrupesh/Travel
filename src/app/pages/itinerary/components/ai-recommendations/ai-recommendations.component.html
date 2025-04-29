@@ -1,0 +1,72 @@
+<div class="recommendations-container">
+  <h2 class="section-title">AI-Powered Travel Recommendations</h2>
+  <p class="section-description">Let our AI create the perfect itinerary based on your preferences.</p>
+
+  <div class="recommendations-content">
+    <div class="trip-summary">
+      <mat-card>
+        <mat-card-content>
+          <div class="summary-item">
+            <mat-icon>category</mat-icon>
+            <span>Trip Type: {{tripType}}</span>
+          </div>
+          <div class="summary-item">
+            <mat-icon>calendar_today</mat-icon>
+            <span>Dates: {{dates.startDate | date}} - {{dates.endDate | date}}</span>
+          </div>
+          <div class="summary-item">
+            <mat-icon>place</mat-icon>
+            <span>Destinations: {{locations.length}} cities</span>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="generate-section" *ngIf="!recommendations.length && !isLoading">
+      <button 
+        mat-raised-button 
+        color="primary"
+        (click)="generateRecommendations()">
+        <mat-icon>psychology</mat-icon>
+        Generate AI Recommendations
+      </button>
+    </div>
+
+    <div class="loading-section" *ngIf="isLoading">
+      <mat-spinner diameter="40"></mat-spinner>
+      <p>Generating your perfect itinerary...</p>
+    </div>
+
+    <div class="recommendations-list" *ngIf="recommendations.length">
+      <mat-card *ngFor="let day of recommendations">
+        <mat-card-header>
+          <mat-card-title>Day {{day.day}} - {{day.location}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="activities-list">
+            <div *ngFor="let activity of day.activities" class="activity-item">
+              <span class="activity-time">{{activity.time}}</span>
+              <span class="activity-name">{{activity.name}}</span>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="button-container">
+      <button 
+        mat-stroked-button
+        color="primary"
+        (click)="onPrevious()">
+        Back
+      </button>
+      <button 
+        mat-raised-button 
+        color="primary"
+        [disabled]="!recommendations.length"
+        (click)="onNext()">
+        Continue to Customize
+      </button>
+    </div>
+  </div>
+</div>

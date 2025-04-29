@@ -1,0 +1,73 @@
+.destination-container {
+  @apply min-h-screen bg-gray-50;
+}
+
+.loading-state, .error-state {
+  @apply flex flex-col items-center justify-center min-h-[400px] text-gray-600;
+}
+
+.error-state mat-icon {
+  @apply text-4xl mb-2;
+}
+
+.destination-content {
+  @apply max-w-7xl mx-auto;
+}
+
+.hero-section {
+  @apply relative h-[400px] bg-cover bg-center;
+}
+
+.hero-overlay {
+  @apply absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-end p-8 text-white;
+}
+
+.destination-title {
+  @apply text-4xl sm:text-5xl font-bold mb-2;
+}
+
+.destination-description {
+  @apply text-lg sm:text-xl max-w-3xl;
+}
+
+.quick-stats {
+  @apply grid grid-cols-3 gap-4 p-6 bg-white shadow-sm mb-6;
+}
+
+.stat-item {
+  @apply flex flex-col items-center text-center;
+}
+
+.stat-item mat-icon {
+  @apply text-primary-500 text-2xl mb-2;
+}
+
+.stat-value {
+  @apply text-2xl font-bold text-gray-900;
+}
+
+.stat-label {
+  @apply text-sm text-gray-600;
+}
+
+::ng-deep {
+  .mat-mdc-tab-group {
+    @apply bg-white shadow-sm rounded-lg overflow-hidden;
+  }
+
+  .mat-mdc-tab-body-content {
+    @apply p-6;
+  }
+
+  .mat-mdc-tab-header {
+    @apply bg-gray-50 border-b border-gray-200;
+  }
+
+  .mat-mdc-tab {
+    @apply text-gray-700;
+  }
+
+  .mat-mdc-tab-label-active {
+    @apply text-primary-700;
+  }
+}

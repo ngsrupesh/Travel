@@ -1,0 +1,7 @@
+.dashboard-container {
+  @apply p-4 sm:p-6 md:p-8 max-w-7xl mx-auto;
+}
+
+.dashboard-title {
+  @apply text-3xl font-bold text-gray-900 mb-8;
+}

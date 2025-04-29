@@ -1,0 +1,119 @@
+.payment-container {
+  @apply min-h-screen bg-gray-50 p-4 sm:p-6 md:p-8;
+}
+
+.payment-card {
+  @apply max-w-2xl mx-auto bg-white rounded-xl shadow-lg;
+}
+
+.payment-header {
+  @apply p-6 border-b border-gray-200;
+}
+
+.payment-header h1 {
+  @apply text-2xl font-bold text-gray-900 mb-4;
+}
+
+.payment-amount {
+  @apply flex items-center justify-between;
+}
+
+.amount-label {
+  @apply text-gray-600 font-medium;
+}
+
+.amount-value {
+  @apply text-2xl font-bold text-primary-600;
+}
+
+.booking-summary {
+  @apply p-6 bg-gray-50 border-b border-gray-200;
+}
+
+.booking-summary h2 {
+  @apply text-lg font-semibold text-gray-900 mb-4;
+}
+
+.summary-details {
+  @apply space-y-2;
+}
+
+.summary-item {
+  @apply flex justify-between items-center;
+}
+
+.summary-item .label {
+  @apply text-gray-600;
+}
+
+.summary-item .value {
+  @apply text-gray-900 font-medium;
+}
+
+.payment-form {
+  @apply p-6 space-y-4;
+}
+
+/* Add this new class for the card details row */
+.card-details-row {
+  @apply grid grid-cols-2 gap-4 mb-4;
+}
+
+.form-row {
+  @apply grid grid-cols-1 sm:grid-cols-3 gap-4;
+}
+
+.payment-actions {
+  @apply flex justify-end gap-4 mt-6;
+}
+
+::ng-deep {
+  .mat-mdc-form-field {
+    @apply w-full;
+  }
+
+  .mat-mdc-card {
+    @apply overflow-hidden;
+  }
+
+  /* Remove notched outline segments */
+  .mdc-notched-outline__leading,
+  .mdc-notched-outline__notch,
+  .mdc-notched-outline__trailing {
+    @apply border-none !important;
+  }
+
+  /* Create a single continuous border */
+  .mdc-text-field--outlined {
+    @apply border border-gray-300 rounded-lg;
+  }
+
+  /* Improve focus state */
+  .mdc-text-field--focused {
+    @apply border-2 border-primary-500;
+  }
+
+  /* Ensure proper label background */
+  .mdc-floating-label {
+    @apply bg-white px-1;
+  }
+
+  /* Adjust input padding */
+  .mat-mdc-text-field-wrapper {
+    @apply bg-white;
+  }
+
+  .mat-mdc-form-field-flex {
+    @apply min-h-[48px];
+  }
+
+  /* Fix error message spacing */
+  .mat-mdc-form-field-subscript-wrapper {
+    @apply h-6;
+  }
+
+  /* Adjust icon alignment */
+  .mat-mdc-form-field-icon-suffix {
+    @apply flex items-center;
+  }
+}

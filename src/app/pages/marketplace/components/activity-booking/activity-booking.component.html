@@ -1,0 +1,80 @@
+<div class="activity-booking">
+  <div class="booking-header">
+    <h2>Featured Activities</h2>
+    <div class="filters">
+      <button mat-button color="primary">
+        <mat-icon>filter_list</mat-icon>
+        Filter
+      </button>
+      <button mat-button color="primary">
+        <mat-icon>sort</mat-icon>
+        Sort
+      </button>
+    </div>
+  </div>
+
+  <div class="activities-grid">
+    <mat-card *ngFor="let activity of activities" class="activity-card">
+      <div class="image-container">
+        <img [src]="activity.image" 
+             [alt]="activity.name" 
+             class="activity-image"
+             (error)="activity.image = 'https://images.unsplash.com/photo-1474044159687-1ee9f3a51722'">
+        <div class="image-placeholder" *ngIf="!activity.image">
+          <mat-icon>hiking</mat-icon>
+          <span>No image available</span>
+        </div>
+      </div>
+      
+      <div class="discount-badge" *ngIf="activity.discount_percentage">
+        {{activity.discount_percentage}}% OFF
+      </div>
+
+      <mat-card-content>
+        <div class="activity-info">
+          <div class="category-badge">{{activity.category}}</div>
+          
+          <h3 class="activity-name">{{activity.name}}</h3>
+          
+          <p class="activity-location">
+            <mat-icon>location_on</mat-icon>
+            {{activity.location.city}}, {{activity.location.country}}
+          </p>
+
+          <div class="activity-rating">
+            <mat-icon class="star-icon">star</mat-icon>
+            <span>{{activity.rating}}</span>
+          </div>
+
+          <p class="activity-description">{{activity.description}}</p>
+
+          <div class="included-items">
+            <h4>What's Included:</h4>
+            <ul>
+              <li *ngFor="let item of activity.included">
+                <mat-icon>check</mat-icon>
+                {{item}}
+              </li>
+            </ul>
+          </div>
+
+          <div class="booking-details">
+            <div class="price-duration">
+              <span class="price">${{activity.price}}</span>
+              <span class="duration">
+                <mat-icon>schedule</mat-icon>
+                {{activity.duration}}
+              </span>
+            </div>
+            <button 
+              mat-raised-button 
+              color="primary"
+              (click)="bookActivity(activity)">
+              Book Now
+            </button>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

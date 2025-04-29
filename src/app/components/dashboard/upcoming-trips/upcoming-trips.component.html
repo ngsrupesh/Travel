@@ -1,0 +1,30 @@
+<div class="upcoming-trips">
+  <h2 class="section-title">Upcoming Trips</h2>
+  <div class="trips-grid">
+    <mat-card *ngFor="let trip of upcomingTrips" class="trip-card">
+      <mat-card-header>
+        <mat-icon mat-card-avatar>flight_takeoff</mat-icon>
+        <mat-card-title>{{trip.destination}}</mat-card-title>
+        <mat-card-subtitle>{{trip.dates}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="trip-details">
+          <p class="hotel"><mat-icon>hotel</mat-icon> {{trip.hotel}}</p>
+          <p class="budget"><mat-icon>account_balance_wallet</mat-icon> {{trip.budget}}</p>
+          <div class="activities">
+            <h3>Planned Activities:</h3>
+            <mat-chip-set>
+              <mat-chip *ngFor="let activity of trip.activities">
+                {{activity}}
+              </mat-chip>
+            </mat-chip-set>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-button color="primary">View Details</button>
+        <button mat-button color="accent">Edit Trip</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

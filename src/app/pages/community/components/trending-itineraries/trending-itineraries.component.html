@@ -1,0 +1,79 @@
+<div class="tab-content-header">
+  <div class="header-content">
+    <h2 class="header-title">
+      <mat-icon>trending_up</mat-icon>
+      Get Inspired by Trending Itineraries
+    </h2>
+    <p class="header-description">
+      Discover the most popular travel plans shared by fellow explorers.
+      Find ideas for your next adventure — from weekend getaways to epic cross-country journeys.
+    </p>
+    <div class="header-note">
+      <mat-icon>favorite</mat-icon>
+      <span>Loved an itinerary? Save it, customize it, or share your own!</span>
+    </div>
+  </div>
+</div>
+
+<div class="trending-itineraries">
+  <div class="section-header">
+    <h2>Trending Itineraries</h2>
+    <button mat-raised-button class="share-button">
+      <mat-icon>add</mat-icon>
+      Share Your Itinerary
+    </button>
+  </div>
+
+  <div class="itineraries-grid">
+    <mat-card *ngFor="let itinerary of itineraries" class="itinerary-card">
+      <div class="itinerary-header">
+        <div class="author-avatar">
+          <img [src]="itinerary.avatar" [alt]="itinerary.author">
+        </div>
+        <div class="itinerary-meta">
+          <h3 class="itinerary-title">{{itinerary.title}}</h3>
+          <div class="itinerary-author">
+            <span>{{itinerary.author}}</span>
+            <span class="post-time">• 2 days ago</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="itinerary-content">
+        <div class="stops-container">
+          <div *ngFor="let stop of itinerary.stops; let last = last" class="stop-item">
+            <span>{{stop}}</span>
+            <mat-icon *ngIf="!last" class="stop-arrow">arrow_forward</mat-icon>
+          </div>
+        </div>
+
+        <div class="highlights-container">
+          <h4 class="highlights-title">Trip Highlights</h4>
+          <div class="highlights-list">
+            <span *ngFor="let highlight of itinerary.highlights" class="highlight-tag">
+              {{highlight}}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="itinerary-footer">
+        <div class="likes">
+          <mat-icon class="text-red-500">favorite</mat-icon>
+          <span>{{itinerary.likes}} travelers loved this</span>
+        </div>
+
+        <div class="action-buttons">
+          <button mat-button class="action-button">
+            <mat-icon>visibility</mat-icon>
+            View Details
+          </button>
+          <button mat-button class="action-button">
+            <mat-icon>file_copy</mat-icon>
+            Clone Itinerary
+          </button>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

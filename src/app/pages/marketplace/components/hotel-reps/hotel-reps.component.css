@@ -1,0 +1,97 @@
+.hotel-reps {
+  @apply space-y-6;
+}
+
+.section-header {
+  @apply bg-gradient-to-br from-primary-50 to-white rounded-lg p-6 mb-8;
+}
+
+.header-content {
+  @apply max-w-3xl;
+}
+
+.section-title {
+  @apply text-2xl font-bold text-gray-900 mb-4;
+}
+
+.section-description {
+  @apply text-lg text-gray-600;
+}
+
+.reps-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+}
+
+.rep-card {
+  @apply bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200;
+}
+
+.rep-header {
+  @apply flex items-center gap-4 p-6 border-b border-gray-100;
+}
+
+.rep-avatar {
+  @apply relative;
+}
+
+.avatar-image {
+  @apply w-16 h-16 rounded-full object-cover;
+}
+
+.verified-badge {
+  @apply absolute -top-1 -right-1 bg-primary-500 text-white p-1 rounded-full;
+}
+
+.rep-info {
+  @apply flex-1;
+}
+
+.rep-name {
+  @apply text-xl font-bold text-gray-900;
+}
+
+.rep-title {
+  @apply text-gray-600;
+}
+
+.rep-content {
+  @apply p-6;
+}
+
+.hotel-info {
+  @apply flex items-center gap-2 text-gray-700 mb-4;
+}
+
+.languages {
+  @apply flex items-center gap-2 text-sm text-gray-600 mb-4;
+}
+
+.availability {
+  @apply flex items-center justify-between text-sm text-gray-600 bg-gray-50 p-3 rounded-lg mb-4;
+}
+
+.specialties {
+  @apply mb-4;
+}
+
+.response-time {
+  @apply flex items-center gap-2 text-sm text-green-600 mb-4;
+}
+
+.rep-actions {
+  @apply flex justify-between items-center mt-6;
+}
+
+::ng-deep {
+  .mat-mdc-card {
+    @apply overflow-hidden;
+  }
+
+  .mat-mdc-chip-set {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .mat-mdc-chip {
+    @apply text-sm;
+  }
+}

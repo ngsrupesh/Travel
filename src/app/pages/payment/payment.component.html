@@ -1,0 +1,89 @@
+<div class="payment-container">
+  <mat-card class="payment-card">
+    <div class="payment-header">
+      <h1>Payment Details</h1>
+      <div class="payment-amount">
+        <span class="amount-label">Total Amount:</span>
+        <span class="amount-value">${{bookingDetails?.amount || '0.00'}}</span>
+      </div>
+    </div>
+
+    <div class="booking-summary" *ngIf="bookingDetails">
+      <h2>Booking Summary</h2>
+      <div class="summary-details">
+        <div class="summary-item">
+          <span class="label">Item:</span>
+          <span class="value">{{bookingDetails.title}}</span>
+        </div>
+        <div class="summary-item">
+          <span class="label">Date:</span>
+          <span class="value">{{bookingDetails.date | date}}</span>
+        </div>
+        <div class="summary-item" *ngIf="bookingDetails.location">
+          <span class="label">Location:</span>
+          <span class="value">{{bookingDetails.location}}</span>
+        </div>
+      </div>
+    </div>
+
+    <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()" class="payment-form">
+      <div class="card-details-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Name on Card</mat-label>
+          <input matInput formControlName="cardName" placeholder="Enter name as shown on card">
+          <mat-error>{{getErrorMessage('cardName')}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Card Number</mat-label>
+          <input matInput formControlName="cardNumber" placeholder="1234 5678 9012 3456" maxlength="16">
+          <mat-icon matSuffix>credit_card</mat-icon>
+          <mat-error>{{getErrorMessage('cardNumber')}}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Expiry Month</mat-label>
+          <mat-select formControlName="expiryMonth">
+            <mat-option *ngFor="let month of [1,2,3,4,5,6,7,8,9,10,11,12]" [value]="month">
+              {{month.toString().padStart(2, '0')}}
+            </mat-option>
+          </mat-select>
+          <mat-error>{{getErrorMessage('expiryMonth')}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Expiry Year</mat-label>
+          <mat-select formControlName="expiryYear">
+            <mat-option *ngFor="let year of [2024,2025,2026,2027,2028]" [value]="year">
+              {{year}}
+            </mat-option>
+          </mat-select>
+          <mat-error>{{getErrorMessage('expiryYear')}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>CVV</mat-label>
+          <input matInput formControlName="cvv" placeholder="123" maxlength="4">
+          <mat-icon matSuffix matTooltip="3 or 4 digit security code">help</mat-icon>
+          <mat-error>{{getErrorMessage('cvv')}}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="payment-actions">
+        <button mat-button type="button" (click)="onCancel()">
+          Cancel
+        </button>
+        <button 
+          mat-raised-button 
+          color="primary" 
+          type="submit"
+          [disabled]="!paymentForm.valid || isProcessing">
+          <span *ngIf="!isProcessing">Pay Now</span>
+          <mat-icon *ngIf="isProcessing" class="animate-spin">sync</mat-icon>
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>

@@ -1,0 +1,29 @@
+.marketplace-container {
+  @apply max-w-7xl mx-auto p-6;
+}
+
+.marketplace-title {
+  @apply text-3xl font-bold text-gray-900 mb-8;
+}
+
+::ng-deep {
+  .mat-mdc-tab-group {
+    @apply bg-white rounded-lg shadow-sm overflow-hidden;
+  }
+
+  .mat-mdc-tab-header {
+    @apply bg-gray-50 border-b border-gray-200;
+  }
+
+  .mat-mdc-tab-body-content {
+    @apply p-6;
+  }
+
+  .mat-mdc-tab {
+    @apply text-gray-700;
+  }
+
+  .mat-mdc-tab-label-active {
+    @apply text-primary-700;
+  }
+}

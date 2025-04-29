@@ -1,0 +1,49 @@
+<mat-toolbar class="toolbar">
+  <button mat-icon-button class="menu-button" (click)="drawer.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="app-title">ARK 3 - Roam the World</span>
+  <span class="spacer"></span>
+  <button mat-icon-button routerLink="/notifications" class="notification-button">
+    <mat-icon [matBadge]="unreadCount" [matBadgeHidden]="unreadCount === 0" matBadgeColor="warn">notifications</mat-icon>
+  </button>
+  <button mat-icon-button routerLink="/profile">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-drawer-container class="drawer-container">
+  <mat-drawer #drawer class="side-nav" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/" class="nav-item">
+        <mat-icon class="nav-icon">home</mat-icon>
+        Home
+      </a>
+      <a mat-list-item routerLink="/dashboard" class="nav-item">
+        <mat-icon class="nav-icon">dashboard</mat-icon>
+        Dashboard
+      </a>
+      <a mat-list-item routerLink="/itinerary" class="nav-item">
+        <mat-icon class="nav-icon">map</mat-icon>
+        Itinerary
+      </a>
+      <a mat-list-item routerLink="/community" class="nav-item">
+        <mat-icon class="nav-icon">people</mat-icon>
+        Community
+      </a>
+      <a mat-list-item routerLink="/marketplace" class="nav-item">
+        <mat-icon class="nav-icon">store</mat-icon>
+        Marketplace
+      </a>
+      <a mat-list-item routerLink="/memberships" class="nav-item">
+        <mat-icon class="nav-icon">card_membership</mat-icon>
+        Memberships & Rewards
+      </a>
+    </mat-nav-list>
+  </mat-drawer>
+  
+  <mat-drawer-content class="main-content">
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </mat-drawer-content>
+</mat-drawer-container>

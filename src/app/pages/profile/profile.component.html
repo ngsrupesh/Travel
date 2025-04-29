@@ -1,0 +1,94 @@
+<div class="profile-container">
+  <mat-card class="profile-card">
+    <div class="profile-header">
+      <div class="profile-avatar">
+        <div class="avatar-placeholder">
+          <mat-icon class="placeholder-icon">account_circle</mat-icon>
+        </div>
+        <button mat-mini-fab color="primary" class="change-avatar-button">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
+      <div class="header-actions">
+        <button mat-stroked-button color="warn" (click)="openDeleteConfirmation()">
+          <mat-icon>delete</mat-icon>
+          Delete Profile
+        </button>
+        <button mat-raised-button color="primary" (click)="toggleEdit()">
+          <mat-icon>{{isEditing ? 'close' : 'edit'}}</mat-icon>
+          {{isEditing ? 'Cancel' : 'Edit Profile'}}
+        </button>
+      </div>
+    </div>
+
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="form-grid">
+        <mat-form-field appearance="fill">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstName" [readonly]="!isEditing">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastName" [readonly]="!isEditing">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" type="email" [readonly]="!isEditing">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Phone</mat-label>
+          <input matInput formControlName="phone" [readonly]="!isEditing">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" [readonly]="true">
+          <mat-datepicker-toggle matIconSuffix [for]="picker" [disabled]="!isEditing"></mat-datepicker-toggle>
+          <mat-datepicker #picker [disabled]="!isEditing"></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Nationality</mat-label>
+          <input matInput formControlName="nationality" [readonly]="!isEditing">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Address</mat-label>
+          <textarea matInput formControlName="address" [readonly]="!isEditing" rows="2"></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Bio</mat-label>
+          <textarea matInput formControlName="bio" [readonly]="!isEditing" rows="3"></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Preferred Currency</mat-label>
+          <mat-select formControlName="preferredCurrency" [disabled]="!isEditing">
+            <mat-option value="USD">USD</mat-option>
+            <mat-option value="EUR">EUR</mat-option>
+            <mat-option value="GBP">GBP</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Language</mat-label>
+          <mat-select formControlName="language" [disabled]="!isEditing">
+            <mat-option value="English">English</mat-option>
+            <mat-option value="Spanish">Spanish</mat-option>
+            <mat-option value="French">French</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="form-actions" *ngIf="isEditing">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!profileForm.valid">
+          Save Changes
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>

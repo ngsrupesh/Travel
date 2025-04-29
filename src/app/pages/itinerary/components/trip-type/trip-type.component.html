@@ -1,0 +1,43 @@
+<div class="trip-type-container">
+  <h2 class="section-title">✈️ What type of trip are you planning?</h2>
+  <p class="section-description">
+    Choose the type of trip that best matches your plans. We'll tailor your itinerary, activity suggestions, and travel tips based on your selection — whether it's a relaxing family getaway, an adventurous solo trip, or a productive business journey.
+  </p>
+
+  <div class="trip-types-grid" [formGroup]="formGroup">
+    <mat-card 
+      *ngFor="let type of tripTypes" 
+      class="trip-type-card"
+      [class.selected]="formGroup.get('tripType')?.value === type.id"
+      (click)="selectTripType(type.id)"
+      [matTooltip]="type.tooltip"
+      matTooltipPosition="above">
+      <mat-card-content>
+        <mat-icon class="type-icon">{{type.icon}}</mat-icon>
+        <h3 class="type-name">{{type.name}}</h3>
+        <p class="type-description">{{type.description}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="travel-companions" *ngIf="showTravelCompanions">
+    <h3 class="companions-title">Who are you traveling with?</h3>
+    <div class="companions-grid">
+      <mat-checkbox *ngFor="let companion of travelCompanions" 
+                    [formControl]="companion.control"
+                    class="companion-checkbox">
+        {{companion.icon}} {{companion.label}}
+      </mat-checkbox>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <button 
+      mat-raised-button 
+      color="primary" 
+      [disabled]="!formGroup.valid"
+      (click)="onNext()">
+      Next
+    </button>
+  </div>
+</div>

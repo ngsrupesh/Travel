@@ -1,0 +1,46 @@
+<div class="notifications-container">
+  <div class="notifications-header">
+    <h1 class="page-title">Notifications</h1>
+    <button 
+      mat-raised-button 
+      color="primary" 
+      (click)="markAllAsRead()"
+      *ngIf="hasUnreadNotifications()">
+      <mat-icon>done_all</mat-icon>
+      Mark All as Read
+    </button>
+  </div>
+
+  <div class="notifications-list" *ngIf="notifications.length > 0">
+    <mat-card *ngFor="let notification of notifications" 
+              class="notification-card"
+              [class.unread]="!notification.read">
+      <div class="notification-content">
+        <mat-icon [class]="getNotificationColor(notification.type)">
+          {{getNotificationIcon(notification.type)}}
+        </mat-icon>
+        <div class="notification-details">
+          <h3 class="notification-title">{{notification.title}}</h3>
+          <p class="notification-message">{{notification.message}}</p>
+          <span class="notification-time">{{getTimeAgo(notification.timestamp)}}</span>
+        </div>
+      </div>
+      <div class="notification-actions">
+        <button mat-button color="primary" 
+                (click)="markAsRead(notification.id)"
+                *ngIf="!notification.read">
+          Mark as Read
+        </button>
+        <button mat-icon-button (click)="clearNotification(notification.id)">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </mat-card>
+  </div>
+
+  <div class="empty-state" *ngIf="notifications.length === 0">
+    <mat-icon class="empty-icon">notifications_off</mat-icon>
+    <h2>No Notifications</h2>
+    <p>You're all caught up! Check back later for new updates.</p>
+  </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="food-options-container">
+  <form [formGroup]="formGroup" class="food-options-form">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Food Preferences</mat-card-title>
+      </mat-card-header>
+      
+      <mat-card-content>
+        <!-- Cuisine Preferences -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Preferred Cuisines</mat-label>
+          <mat-select formControlName="cuisinePreferences" multiple>
+            <mat-option *ngFor="let cuisine of cuisineOptions" [value]="cuisine">
+              {{cuisine}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Diet Type -->
+        <div class="diet-types">
+          <h3>Diet Type</h3>
+          <mat-chip-listbox formControlName="dietType">
+            <mat-chip-option *ngFor="let diet of dietTypes" [value]="diet.id" [matTooltip]="diet.description">
+              {{diet.icon}} {{diet.name}}
+            </mat-chip-option>
+          </mat-chip-listbox>
+        </div>
+
+        <!-- Religious Preferences -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Religious Dietary Requirements</mat-label>
+          <mat-select formControlName="religiousPreferences" multiple>
+            <mat-option *ngFor="let pref of religiousPreferences" [value]="pref">
+              {{pref}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Allergy Awareness -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Allergies & Restrictions</mat-label>
+          <mat-select formControlName="allergyAwareness" multiple>
+            <mat-option *ngFor="let allergy of allergyOptions" [value]="allergy">
+              {{allergy}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Spice Level -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Preferred Spice Level</mat-label>
+          <mat-select formControlName="spiceLevel">
+            <mat-option *ngFor="let level of spiceLevels" [value]="level">
+              {{level}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-card-content>
+
+      <mat-card-actions align="end">
+        <button mat-button type="button" (click)="onPrevious()">Previous</button>
+        <button mat-raised-button color="primary" type="button" (click)="onNext()" [disabled]="!formGroup.valid">
+          Next
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

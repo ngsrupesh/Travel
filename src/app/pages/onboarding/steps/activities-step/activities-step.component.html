@@ -1,0 +1,34 @@
+<form [formGroup]="formGroup" class="step-form">
+  <!-- Activities -->
+  <div class="form-section">
+    <h2 class="section-title">What activities do you enjoy while traveling?</h2>
+    <div formGroupName="activities" class="checkbox-group">
+      <mat-checkbox formControlName="sightseeing">Sightseeing</mat-checkbox>
+      <mat-checkbox formControlName="trekking">Trekking</mat-checkbox>
+      <mat-checkbox formControlName="shopping">Shopping</mat-checkbox>
+      <mat-checkbox formControlName="foodAndDrink">Food & Drink</mat-checkbox>
+      <mat-checkbox formControlName="nightlife">Nightlife</mat-checkbox>
+    </div>
+  </div>
+
+  <!-- Travel Personality -->
+  <div class="form-section">
+    <h2 class="section-title">How would you describe your travel personality?</h2>
+    <div formGroupName="travelPersonality" class="checkbox-group">
+      <mat-checkbox formControlName="explorer">Explorer (Loves adventure & new experiences)</mat-checkbox>
+      <mat-checkbox formControlName="relaxer">Relaxer (Prefers calm, stress-free vacations)</mat-checkbox>
+      <mat-checkbox formControlName="cultureEnthusiast">Culture Enthusiast (Enjoys museums, history, and local traditions)</mat-checkbox>
+      <mat-checkbox formControlName="socialTraveler">Social Traveler (Loves meeting people and socializing)</mat-checkbox>
+      <mat-checkbox formControlName="planner">Planner (Enjoys well-organized, itinerary-based trips)</mat-checkbox>
+      <mat-checkbox formControlName="spontaneous">Spontaneous (Prefers unplanned, flexible travel)</mat-checkbox>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <button mat-raised-button color="primary" 
+            [disabled]="!formGroup.valid"
+            (click)="onNext()">
+      Next
+    </button>
+  </div>
+</form>

@@ -1,0 +1,77 @@
+.user-profiles {
+  @apply space-y-6;
+}
+
+.section-header {
+  @apply flex justify-between items-center mb-6;
+}
+
+.section-header h2 {
+  @apply text-2xl font-bold text-gray-900;
+}
+
+.profiles-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+}
+
+.profile-card {
+  @apply rounded-xl hover:shadow-lg transition-shadow;
+}
+
+.bio {
+  @apply text-gray-600 mt-4 mb-6;
+}
+
+.stats {
+  @apply flex justify-around mb-6;
+}
+
+.stat-item {
+  @apply flex flex-col items-center;
+}
+
+.stat-value {
+  @apply text-xl font-bold text-gray-900;
+}
+
+.stat-label {
+  @apply text-sm text-gray-600;
+}
+
+.recent-activity {
+  @apply flex items-center gap-2 text-gray-700 mb-6;
+}
+
+.specialties {
+  @apply space-y-2;
+}
+
+.specialties h4 {
+  @apply text-sm font-medium text-gray-600;
+}
+
+::ng-deep {
+  .mat-mdc-card-header {
+    @apply p-4;
+  }
+
+  .mat-mdc-card-content {
+    @apply p-4;
+  }
+
+  .mat-mdc-card-actions {
+    @apply p-4 border-t border-gray-100;
+  }
+
+  .mat-mdc-card-avatar {
+    @apply w-12 h-12;
+  }
+
+  .mat-mdc-chip-set {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .mat-mdc-chip {
+    @apply text-sm;
+  }
+}

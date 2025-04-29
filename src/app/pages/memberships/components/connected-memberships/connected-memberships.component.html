@@ -1,0 +1,87 @@
+<div class="memberships-content">
+  <!-- Header Section -->
+  <div class="header-section">
+    <div class="header-content">
+      <h2 class="header-title">Link Your Travel Memberships for Smarter Planning</h2>
+      <p class="header-description">
+        Connect your loyalty programs and travel memberships like AAA, AARP, Marriott Bonvoy, Delta SkyMiles, and more — all in one place.
+      </p>
+      <div class="benefits-list">
+        <div class="benefit-item">
+          <mat-icon>link</mat-icon>
+          <span>Easily manage your connected accounts</span>
+        </div>
+        <div class="benefit-item">
+          <mat-icon>target</mat-icon>
+          <span>Get personalized deals and faster booking experiences</span>
+        </div>
+        <div class="benefit-item">
+          <mat-icon>diamond</mat-icon>
+          <span>Maximize your travel benefits across every trip</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action Section -->
+  <div class="action-section">
+    <button mat-raised-button color="primary" class="add-membership-button" (click)="addNewMembership()">
+      <mat-icon>add</mat-icon>
+      Link a Membership
+    </button>
+    
+    <p class="status-message" *ngIf="!hasConnectedMemberships">
+      Don't have an account yet? We'll suggest programs that fit your travel style.
+    </p>
+    
+    <p class="status-message" *ngIf="hasConnectedMemberships">
+      You have {{memberships.length}} memberships connected. Explore your exclusive benefits below.
+    </p>
+  </div>
+
+  <!-- Memberships Grid -->
+  <div class="memberships-grid" *ngIf="hasConnectedMemberships">
+    <mat-card *ngFor="let membership of memberships" class="membership-card">
+      <div class="membership-header">
+        <img [src]="membership.logo" [alt]="membership.name" class="membership-logo">
+        <div class="membership-status">
+          <span [class]="'status-badge ' + getStatusColor(membership.status)">
+            {{membership.status}}
+          </span>
+        </div>
+      </div>
+
+      <mat-card-content>
+        <div class="membership-details">
+          <div class="detail-row">
+            <span class="label">Number:</span>
+            <span class="value">{{membership.number}}</span>
+          </div>
+          <div class="detail-row">
+            <span class="label">Points:</span>
+            <span class="value">{{membership.points | number}}</span>
+          </div>
+          <div class="detail-row">
+            <span class="label">Tier:</span>
+            <span class="value">{{membership.tier}}</span>
+          </div>
+          <div class="detail-row">
+            <span class="label">Expires:</span>
+            <span class="value">{{membership.expiryDate | date}}</span>
+          </div>
+        </div>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <a mat-button color="primary" [href]="membership.portalUrl" target="_blank">
+          <mat-icon>open_in_new</mat-icon>
+          Visit Portal
+        </a>
+        <button mat-button color="warn">
+          <mat-icon>link_off</mat-icon>
+          Unlink
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

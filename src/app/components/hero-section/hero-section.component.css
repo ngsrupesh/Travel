@@ -1,0 +1,43 @@
+.hero-section {
+  @apply min-h-[90vh] bg-gradient-to-br from-primary-50 to-white flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12 md:py-24;
+}
+
+.hero-content {
+  @apply max-w-7xl mx-auto text-center w-full;
+}
+
+.hero-title {
+  @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight font-extrabold text-gray-900 mb-6;
+}
+
+.hero-subtitle {
+  @apply text-xl sm:text-2xl md:text-3xl text-gray-600 mb-8 max-w-3xl mx-auto;
+}
+
+.hero-buttons {
+  @apply flex flex-col items-center gap-6 mb-12;
+}
+
+.button-group {
+  @apply flex flex-col sm:flex-row gap-4;
+}
+
+.hero-image {
+  @apply relative w-full max-w-5xl mx-auto;
+}
+
+.hero-image img {
+  @apply w-full h-auto rounded-xl shadow-2xl;
+}
+
+.floating-card {
+  @apply absolute bg-white rounded-lg shadow-xl p-4 flex items-center gap-3;
+}
+
+.card-left {
+  @apply -left-4 top-1/4 transform -translate-x-1/2;
+}
+
+.card-right {
+  @apply -right-4 bottom-1/4 transform translate-x-1/2;
+}

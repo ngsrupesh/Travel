@@ -1,0 +1,54 @@
+<form [formGroup]="formGroup" class="step-form">
+  <!-- Annual Budget -->
+  <div class="form-section">
+    <h2 class="section-title">What is your estimated annual travel budget?</h2>
+    <mat-form-field class="w-full">
+      <mat-select formControlName="annualBudget">
+        <mat-option *ngFor="let range of budgetRanges" [value]="range.value">
+          {{range.label}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <!-- Travel Style -->
+  <div class="form-section">
+    <h2 class="section-title">What type of travel do you prefer?</h2>
+    <div formGroupName="travelStyle" class="checkbox-group">
+      <mat-checkbox formControlName="luxury">Luxury</mat-checkbox>
+      <mat-checkbox formControlName="budget">Budget</mat-checkbox>
+      <mat-checkbox formControlName="adventure">Adventure</mat-checkbox>
+      <mat-checkbox formControlName="cultural">Cultural</mat-checkbox>
+      <mat-checkbox formControlName="relaxation">Relaxation</mat-checkbox>
+    </div>
+  </div>
+
+  <!-- Weather Preferences -->
+  <div class="form-section">
+    <h2 class="section-title">Do you prefer destinations with specific weather conditions?</h2>
+    <mat-radio-group formControlName="weatherPreference" class="radio-group">
+      <mat-radio-button value="summer">Summer Destinations</mat-radio-button>
+      <mat-radio-button value="winter">Winter Destinations</mat-radio-button>
+      <mat-radio-button value="no_preference">No Preference</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <!-- Transportation Modes -->
+  <div class="form-section">
+    <h2 class="section-title">What are your preferred modes of transportation?</h2>
+    <div formGroupName="transportationModes" class="checkbox-group">
+      <mat-checkbox formControlName="flight">Flight</mat-checkbox>
+      <mat-checkbox formControlName="train">Train</mat-checkbox>
+      <mat-checkbox formControlName="roadTrip">Road Trip</mat-checkbox>
+      <mat-checkbox formControlName="cruise">Cruise</mat-checkbox>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <button mat-raised-button color="primary" 
+            [disabled]="!formGroup.valid"
+            (click)="onNext()">
+      Next
+    </button>
+  </div>
+</form>

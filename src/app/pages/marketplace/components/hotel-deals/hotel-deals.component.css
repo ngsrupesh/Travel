@@ -1,0 +1,105 @@
+.hotel-deals {
+  @apply space-y-6;
+}
+
+.deals-header {
+  @apply flex justify-between items-center mb-6;
+}
+
+.deals-header h2 {
+  @apply text-2xl font-bold text-gray-900;
+}
+
+.filters {
+  @apply flex gap-2;
+}
+
+.deals-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+}
+
+.hotel-card {
+  @apply relative hover:shadow-lg transition-shadow;
+}
+
+.image-container {
+  @apply relative w-full h-48;
+}
+
+.hotel-image {
+  @apply w-full h-full object-cover;
+}
+
+.image-placeholder {
+  @apply absolute inset-0 flex flex-col items-center justify-center bg-gray-100 text-gray-400;
+}
+
+.image-placeholder mat-icon {
+  @apply text-4xl mb-2;
+}
+
+.discount-badge {
+  @apply absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold;
+}
+
+.hotel-info {
+  @apply space-y-4;
+}
+
+.hotel-name {
+  @apply text-xl font-bold text-gray-900;
+}
+
+.hotel-location {
+  @apply flex items-center gap-1 text-gray-600;
+}
+
+.hotel-rating {
+  @apply flex items-center gap-1;
+}
+
+.star-icon {
+  @apply text-yellow-500;
+}
+
+.hotel-description {
+  @apply text-gray-600;
+}
+
+.amenities {
+  @apply mt-4;
+}
+
+.price-info {
+  @apply flex justify-between items-center mt-6;
+}
+
+.price {
+  @apply flex flex-col;
+}
+
+.amount {
+  @apply text-2xl font-bold text-gray-900;
+}
+
+.period {
+  @apply text-sm text-gray-600;
+}
+
+::ng-deep {
+  .mat-mdc-card {
+    @apply rounded-none;
+  }
+
+  .mat-mdc-card-content {
+    @apply p-6;
+  }
+
+  .mat-mdc-chip-set {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .mat-mdc-chip {
+    @apply text-sm;
+  }
+}

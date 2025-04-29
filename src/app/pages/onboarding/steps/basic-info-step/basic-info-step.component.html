@@ -1,0 +1,60 @@
+<form [formGroup]="formGroup" class="step-form">
+  <!-- Gender Selection -->
+  <div class="form-section">
+    <h2 class="section-title">How do you identify?</h2>
+    <mat-radio-group formControlName="gender" class="radio-group">
+      <mat-radio-button value="male">Male</mat-radio-button>
+      <mat-radio-button value="female">Female</mat-radio-button>
+      <mat-radio-button value="prefer_not_to_say">Prefer not to say</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <!-- Family Travel -->
+  <div class="form-section">
+    <h2 class="section-title">Do you usually travel with family?</h2>
+    <mat-radio-group formControlName="familyTravel" class="radio-group">
+      <mat-radio-button value="yes">Yes</mat-radio-button>
+      <mat-radio-button value="no">No</mat-radio-button>
+      <mat-radio-button value="sometimes">Sometimes</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <!-- Travel Companions -->
+  <div class="form-section" *ngIf="formGroup.get('familyTravel')?.value === 'yes'">
+    <h2 class="section-title">Who do you usually travel with?</h2>
+    <div formGroupName="travelCompanions" class="checkbox-group">
+      <mat-checkbox formControlName="kids">Kids</mat-checkbox>
+      <mat-checkbox formControlName="spouse">Spouse</mat-checkbox>
+      <mat-checkbox formControlName="parents">Parents</mat-checkbox>
+      <mat-checkbox formControlName="otherRelatives">Other Relatives</mat-checkbox>
+    </div>
+  </div>
+
+  <!-- Travel Purpose -->
+  <div class="form-section">
+    <h2 class="section-title">What is your primary reason for traveling?</h2>
+    <mat-radio-group formControlName="travelPurpose" class="radio-group">
+      <mat-radio-button value="business">Business</mat-radio-button>
+      <mat-radio-button value="vacation">Vacation</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <!-- Travel Frequency -->
+  <div class="form-section">
+    <h2 class="section-title">How often do you travel in a year?</h2>
+    <mat-radio-group formControlName="travelFrequency" class="radio-group">
+      <mat-radio-button value="monthly">Monthly</mat-radio-button>
+      <mat-radio-button value="quarterly">Quarterly</mat-radio-button>
+      <mat-radio-button value="twice_yearly">Twice a year</mat-radio-button>
+      <mat-radio-button value="yearly">Once a year</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div class="button-container">
+    <button mat-raised-button color="primary" 
+            [disabled]="!formGroup.valid"
+            (click)="onNext()">
+      Next
+    </button>
+  </div>
+</form>

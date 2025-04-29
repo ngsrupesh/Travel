@@ -1,0 +1,71 @@
+<div class="login-container">
+  <div class="login-content">
+    <mat-card class="login-card">
+      <div class="login-header">
+        <img src="https://via.placeholder.com/150" alt="Logo" class="logo">
+        <h1>Welcome Back!</h1>
+        <p>Sign in to continue your journey</p>
+      </div>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" placeholder="Enter your email" type="email">
+          <mat-icon matSuffix>email</mat-icon>
+          <mat-error *ngIf="loginForm.get('email')?.invalid">
+            {{getErrorMessage('email')}}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" [type]="hidePassword ? 'password' : 'text'" placeholder="Enter your password">
+          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="loginForm.get('password')?.invalid">
+            {{getErrorMessage('password')}}
+          </mat-error>
+        </mat-form-field>
+
+        <div class="form-options">
+          <mat-checkbox formControlName="rememberMe" color="primary">
+            Remember me
+          </mat-checkbox>
+          <a href="#" class="forgot-password">Forgot password?</a>
+        </div>
+
+        <button 
+          mat-raised-button 
+          color="primary" 
+          type="submit" 
+          class="login-button"
+          [disabled]="!loginForm.valid || isLoading">
+          <mat-icon *ngIf="isLoading" class="spinner">sync</mat-icon>
+          <span>{{isLoading ? 'Signing in...' : 'Sign In'}}</span>
+        </button>
+
+        <div class="social-login">
+          <div class="divider">
+            <span>Or sign in as</span>
+          </div>
+          <div class="login-options">
+            <button mat-stroked-button type="button" class="corporate-button" (click)="loginAsCorporate()">
+              <mat-icon>business</mat-icon>
+              Corporate Traveler
+            </button>
+            <button mat-stroked-button type="button" class="personal-button">
+              <mat-icon>person</mat-icon>
+              Personal Account
+            </button>
+          </div>
+        </div>
+
+        <div class="signup-prompt">
+          <span>Don't have an account?</span>
+          <a routerLink="/signup">Sign up</a>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>

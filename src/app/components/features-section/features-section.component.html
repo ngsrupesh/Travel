@@ -1,0 +1,12 @@
+<section id="features" class="features-section">
+  <div class="features-content">
+    <h2 class="section-title">Why Choose Our Travel Portal?</h2>
+    <div class="features-grid">
+      <div *ngFor="let feature of features" class="feature-card">
+        <mat-icon class="feature-icon">{{feature.icon}}</mat-icon>
+        <h3 class="feature-title">{{feature.title}}</h3>
+        <p class="feature-description">{{feature.description}}</p>
+      </div>
+    </div>
+  </div>
+</section>

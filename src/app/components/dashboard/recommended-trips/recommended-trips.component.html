@@ -1,0 +1,30 @@
+<div class="recommended-trips">
+  <h2 class="section-title">Recommended for You</h2>
+  <div class="trips-grid">
+    <mat-card *ngFor="let trip of recommendedTrips" class="trip-card">
+      <mat-card-header>
+        <mat-icon mat-card-avatar>psychology</mat-icon>
+        <mat-card-title>{{trip.destination}}</mat-card-title>
+        <mat-card-subtitle>Best Time: {{trip.best_time}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="trip-details">
+          <p class="reason"><mat-icon>info</mat-icon> {{trip.reason}}</p>
+          <p class="budget"><mat-icon>account_balance_wallet</mat-icon> {{trip.estimated_budget}}</p>
+          <div class="activities">
+            <h3>Suggested Activities:</h3>
+            <mat-chip-set>
+              <mat-chip *ngFor="let activity of trip.top_activities">
+                {{activity}}
+              </mat-chip>
+            </mat-chip-set>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-button color="primary">Plan This Trip</button>
+        <button mat-button color="accent">Learn More</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

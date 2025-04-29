@@ -1,0 +1,45 @@
+<section class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title">
+      <span class="block">Discover Your Next</span>
+      <span class="block text-primary-600">Adventure</span>
+    </h1>
+    <p class="hero-subtitle">
+      Plan your perfect trip with AI-powered recommendations, exclusive deals, and a global community of travelers.
+    </p>
+    
+    <div class="hero-buttons">
+      <div class="button-group">
+        <button mat-raised-button color="primary" class="primary-button" (click)="navigateToOnboarding()">
+          Sign Up
+        </button>
+        <button mat-raised-button color="accent" class="primary-button" routerLink="/login">
+          Log In
+        </button>
+      </div>
+      <div class="guest-mode">
+        <button mat-stroked-button color="primary" class="guest-button" (click)="continueAsGuest()">
+          <mat-icon>travel_explore</mat-icon>
+          Continue as Guest
+        </button>
+        <p class="guest-text">Want to explore first? Try Guest Mode — no sign-up needed.</p>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="https://images.pexels.com/photos/2325446/pexels-photo-2325446.jpeg" 
+           alt="Travel destination"
+           class="rounded-lg shadow-xl">
+      
+      <div class="floating-card card-left">
+        <mat-icon class="text-primary-500">flight_takeoff</mat-icon>
+        <span class="font-medium">500+ Destinations</span>
+      </div>
+      
+      <div class="floating-card card-right">
+        <mat-icon class="text-primary-500">group</mat-icon>
+        <span class="font-medium">10k+ Happy Travelers</span>
+      </div>
+    </div>
+  </div>
+</section>

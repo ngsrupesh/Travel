@@ -1,0 +1,94 @@
+<div class="summary-container">
+  <h2 class="summary-title">Review Your Preferences</h2>
+
+  <div class="summary-sections">
+    <!-- Basic Info Summary -->
+    <mat-card class="summary-card">
+      <mat-card-header>
+        <mat-card-title>Basic Information</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="summary-item">
+          <span class="label">Gender:</span>
+          <span class="value">{{basicInfo.gender}}</span>
+        </div>
+        <div class="summary-item">
+          <span class="label">Travel with Family:</span>
+          <span class="value">{{basicInfo.familyTravel}}</span>
+        </div>
+        <div class="summary-item">
+          <span class="label">Travel Purpose:</span>
+          <span class="value">{{basicInfo.travelPurpose}}</span>
+        </div>
+        <div class="summary-item">
+          <span class="label">Travel Frequency:</span>
+          <span class="value">{{basicInfo.travelFrequency}}</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Travel Preferences Summary -->
+    <mat-card class="summary-card">
+      <mat-card-header>
+        <mat-card-title>Travel Preferences</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="summary-item">
+          <span class="label">Annual Budget:</span>
+          <span class="value">{{travelPreferences.annualBudget}}</span>
+        </div>
+        <div class="summary-item">
+          <span class="label">Weather Preference:</span>
+          <span class="value">{{travelPreferences.weatherPreference}}</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Activities Summary -->
+    <mat-card class="summary-card">
+      <mat-card-header>
+        <mat-card-title>Activities & Interests</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="summary-item">
+          <span class="label">Selected Activities:</span>
+          <span class="value">
+            <span *ngFor="let activity of getSelectedItems(activities.activities)" class="tag">
+              {{activity}}
+            </span>
+          </span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Requirements Summary -->
+    <mat-card class="summary-card">
+      <mat-card-header>
+        <mat-card-title>Special Requirements</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="summary-item">
+          <span class="label">Dietary Preferences:</span>
+          <span class="value">{{requirements.dietaryPreferences}}</span>
+        </div>
+        <div class="summary-item">
+          <span class="label">Accessibility Needs:</span>
+          <span class="value">
+            <span *ngFor="let need of getSelectedItems(requirements.accessibility)" class="tag">
+              {{need}}
+            </span>
+          </span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="button-container">
+    <button mat-stroked-button color="primary" (click)="onEdit()">
+      Edit Preferences
+    </button>
+    <button mat-raised-button color="primary" (click)="onSubmit()">
+      Complete Setup
+    </button>
+  </div>
+</div>

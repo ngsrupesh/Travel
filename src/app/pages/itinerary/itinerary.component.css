@@ -1,0 +1,49 @@
+.itinerary-container {
+  @apply min-h-screen bg-gradient-to-br from-primary-50 to-white p-4 sm:p-6 md:p-8;
+}
+
+.itinerary-content {
+  @apply max-w-7xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden;
+}
+
+.page-title {
+  @apply text-3xl font-bold text-gray-900 p-6 border-b border-gray-200;
+}
+
+.itinerary-stepper {
+  @apply p-4 sm:p-6;
+}
+
+::ng-deep {
+  .mat-horizontal-stepper-header-container {
+    @apply mb-8 bg-gray-50 p-4 rounded-lg;
+  }
+
+  .mat-step-header {
+    @apply rounded-lg hover:bg-gray-100 transition-colors duration-200;
+  }
+
+  .mat-step-icon {
+    @apply bg-primary-100 text-primary-700;
+  }
+
+  .mat-step-icon-selected {
+    @apply bg-primary-600 text-white;
+  }
+
+  .mat-step-label {
+    @apply text-gray-600;
+  }
+
+  .mat-step-label-selected {
+    @apply text-primary-700 font-medium;
+  }
+
+  .mat-horizontal-content-container {
+    @apply p-0;
+  }
+
+  .mat-horizontal-stepper-content {
+    @apply mb-6;
+  }
+}

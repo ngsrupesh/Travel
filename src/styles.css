@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Material Theme */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* Base Styles */
+@layer base {
+  *, ::before, ::after {
+    box-sizing: border-box;
+    border-width: 0px;
+    border-style: none;
+    border-color: transparent;
+  }
+}
+
+html, body { 
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.mat-mdc-button-base {
+  @apply rounded-lg;
+}
+
+.mat-toolbar {
+  @apply shadow-sm;
+}

@@ -1,0 +1,113 @@
+.memberships-content {
+  @apply space-y-8;
+}
+
+.header-section {
+  @apply bg-gradient-to-br from-primary-50 to-white rounded-lg p-6 mb-8;
+}
+
+.header-content {
+  @apply max-w-3xl;
+}
+
+.header-title {
+  @apply text-2xl font-bold text-gray-900 mb-4;
+}
+
+.header-description {
+  @apply text-lg text-gray-600 mb-6;
+}
+
+.benefits-list {
+  @apply space-y-3;
+}
+
+.benefit-item {
+  @apply flex items-center gap-2 text-gray-700;
+}
+
+.benefit-item mat-icon {
+  @apply text-primary-500;
+}
+
+.action-section {
+  @apply flex flex-col items-center gap-4 py-6;
+}
+
+.add-membership-button {
+  @apply flex items-center gap-2 px-6 py-3 text-lg;
+}
+
+.status-message {
+  @apply text-gray-600 text-center;
+}
+
+.memberships-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.membership-card {
+  @apply bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200;
+}
+
+.membership-header {
+  @apply p-4 flex justify-between items-start border-b border-gray-100;
+}
+
+.membership-logo {
+  @apply h-12 object-contain;
+}
+
+.membership-status {
+  @apply flex items-center;
+}
+
+.status-badge {
+  @apply px-2 py-1 rounded-full text-xs font-medium;
+}
+
+.status-active {
+  @apply bg-green-100 text-green-700;
+}
+
+.status-inactive {
+  @apply bg-gray-100 text-gray-700;
+}
+
+.status-expired {
+  @apply bg-red-100 text-red-700;
+}
+
+.membership-details {
+  @apply space-y-3 mt-4;
+}
+
+.detail-row {
+  @apply flex justify-between items-center;
+}
+
+.label {
+  @apply text-gray-600 text-sm;
+}
+
+.value {
+  @apply font-medium text-gray-900;
+}
+
+mat-card-actions {
+  @apply flex justify-between border-t border-gray-100 mt-4 p-4;
+}
+
+::ng-deep {
+  .mat-mdc-card {
+    @apply overflow-hidden;
+  }
+
+  .mat-mdc-card-content {
+    @apply p-4;
+  }
+
+  .mat-mdc-button {
+    @apply text-sm;
+  }
+}

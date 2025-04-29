@@ -1,0 +1,65 @@
+<div class="location-picker-container">
+  <h2 class="section-title">Where would you like to go?</h2>
+  <p class="section-description">Select the destinations you want to visit during your trip.</p>
+
+  <div class="location-content">
+    <div class="location-controls">
+      <div class="search-input-container">
+        <mat-form-field appearance="outline" class="search-field">
+          <mat-label>Search for a city</mat-label>
+          <input 
+            matInput 
+            [(ngModel)]="searchText"
+            (input)="onSearchInput()"
+            placeholder="e.g., Paris, France">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+
+        <!-- Sample suggestions -->
+        <div class="search-suggestions" *ngIf="showSuggestions">
+          <div class="suggestion-item" (click)="addSampleLocation('Paris')">
+            <mat-icon class="suggestion-icon">place</mat-icon>
+            <span>Paris, France</span>
+          </div>
+          <div class="suggestion-item" (click)="addSampleLocation('London')">
+            <mat-icon class="suggestion-icon">place</mat-icon>
+            <span>London, United Kingdom</span>
+          </div>
+          <div class="suggestion-item" (click)="addSampleLocation('Tokyo')">
+            <mat-icon class="suggestion-icon">place</mat-icon>
+            <span>Tokyo, Japan</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="selected-locations" *ngIf="selectedLocations.length > 0">
+        <h3>Selected Destinations</h3>
+        <div class="flex flex-wrap gap-2">
+          <div *ngFor="let location of selectedLocations; let i = index" class="location-chip">
+            <mat-icon class="location-icon">place</mat-icon>
+            <span>{{location.city}}, {{location.country}}</span>
+            <button class="remove-button" (click)="removeLocation(i)">
+              <mat-icon class="remove-icon">close</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="button-container">
+        <button 
+          mat-stroked-button
+          color="primary"
+          (click)="onPrevious()">
+          Back
+        </button>
+        <button 
+          mat-raised-button 
+          color="primary" 
+          [disabled]="!formGroup.valid || selectedLocations.length === 0"
+          (click)="onNext()">
+          Continue
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

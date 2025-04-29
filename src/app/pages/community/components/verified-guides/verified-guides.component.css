@@ -1,0 +1,141 @@
+.guides-container {
+  @apply space-y-8;
+}
+
+.section-header {
+  @apply flex justify-between items-center mb-8;
+}
+
+.section-header h2 {
+  @apply text-2xl font-bold text-gray-900 flex items-center gap-2;
+}
+
+.header-content {
+  @apply max-w-3xl;
+}
+
+.section-title {
+  @apply text-2xl font-bold text-gray-900 mb-4;
+}
+
+.section-description {
+  @apply text-lg text-gray-600;
+}
+
+.filters-section {
+  @apply bg-white rounded-lg shadow-sm p-4 mb-8;
+}
+
+.filters-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4;
+}
+
+.guides-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6 mt-8;
+}
+
+.guide-card {
+  @apply bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200;
+}
+
+.guide-header {
+  @apply flex items-center gap-4 p-6 border-b border-gray-100;
+}
+
+.guide-avatar {
+  @apply relative;
+}
+
+.avatar-image {
+  @apply w-16 h-16 rounded-full object-cover;
+}
+
+.verified-badge {
+  @apply absolute -top-1 -right-1 bg-primary-500 text-white p-1 rounded-full;
+}
+
+.guide-info {
+  @apply flex-1;
+}
+
+.guide-name {
+  @apply text-xl font-bold text-gray-900;
+}
+
+.guide-location {
+  @apply text-gray-600;
+}
+
+.guide-stats {
+  @apply flex items-center gap-4 text-sm text-gray-600;
+}
+
+.rating {
+  @apply flex items-center gap-1;
+}
+
+.star-icon {
+  @apply text-yellow-500;
+}
+
+.guide-content {
+  @apply p-6;
+}
+
+.guide-bio {
+  @apply text-gray-600 mb-4;
+}
+
+.specialties {
+  @apply mb-4;
+}
+
+.languages {
+  @apply flex items-center gap-2 text-sm text-gray-600 mb-4;
+}
+
+.availability {
+  @apply flex items-center justify-between text-sm text-gray-600 bg-gray-50 p-3 rounded-lg mb-4;
+}
+
+.price {
+  @apply text-lg font-bold text-primary-600;
+}
+
+.guide-actions {
+  @apply flex justify-between items-center mt-6;
+}
+
+.empty-state {
+  @apply flex flex-col items-center justify-center py-12 text-center;
+}
+
+.empty-icon {
+  @apply text-6xl text-gray-400 mb-4;
+}
+
+.empty-title {
+  @apply text-xl font-semibold text-gray-900 mb-2;
+}
+
+.empty-description {
+  @apply text-gray-600 mb-6;
+}
+
+::ng-deep {
+  .mat-mdc-card {
+    @apply overflow-hidden;
+  }
+
+  .mat-mdc-form-field {
+    @apply w-full;
+  }
+
+  .mat-mdc-chip-set {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .mat-mdc-chip {
+    @apply text-sm;
+  }
+}

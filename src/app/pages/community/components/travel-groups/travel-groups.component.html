@@ -1,0 +1,80 @@
+<div class="tab-content-header">
+  <div class="header-content">
+    <h2 class="header-title">
+      <mat-icon>groups</mat-icon>
+      Connect with Like-Minded Travelers
+    </h2>
+    <p class="header-description">
+      Join travel groups based on your interests — solo travel, family adventures, backpacking, cultural tours, and more.
+      Share experiences, plan together, or simply meet people who share your passion for exploration.
+    </p>
+    <div class="header-note">
+      <mat-icon>check_circle</mat-icon>
+      <span>Find your tribe. Plan together. Explore better.</span>
+    </div>
+  </div>
+</div>
+
+<div class="travel-groups">
+  <div class="section-header">
+    <h2>Travel Groups</h2>
+    <button mat-raised-button class="create-group-button">
+      <mat-icon>add</mat-icon>
+      Create New Group
+    </button>
+  </div>
+
+  <div class="groups-grid">
+    <mat-card *ngFor="let group of groups" class="group-card">
+      <div class="group-image">
+        <img [src]="group.image" 
+             [alt]="group.name"
+             (error)="group.image = 'https://images.unsplash.com/photo-1527004013197-933c4bb611b3'">
+        <div class="image-placeholder" *ngIf="!group.image">
+          <mat-icon>groups</mat-icon>
+          <span>No image available</span>
+        </div>
+      </div>
+
+      <div class="group-meta">
+        <h3 class="group-name">{{group.name}}</h3>
+        <p class="group-description">{{group.description}}</p>
+        
+        <div class="group-stats">
+          <div class="stat-item">
+            <mat-icon>group</mat-icon>
+            <span>{{group.memberCount}} members</span>
+          </div>
+          <div class="stat-item">
+            <mat-icon>forum</mat-icon>
+            <span>{{group.posts || 0}} posts</span>
+          </div>
+        </div>
+
+        <div class="tags-container">
+          <span *ngFor="let tag of group.tags" class="tag">
+            #{{tag}}
+          </span>
+        </div>
+      </div>
+
+      <div class="group-footer">
+        <div class="last-active">
+          <mat-icon>access_time</mat-icon>
+          <span>Last active {{group.lastActive}}</span>
+        </div>
+
+        <div class="action-buttons">
+          <button mat-button class="action-button" (click)="joinGroup(group.id)">
+            <mat-icon>person_add</mat-icon>
+            Join Group
+          </button>
+          <button mat-button class="action-button">
+            <mat-icon>info</mat-icon>
+            Learn More
+          </button>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

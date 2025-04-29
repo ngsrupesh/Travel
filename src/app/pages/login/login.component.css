@@ -1,0 +1,115 @@
+.login-container {
+  @apply min-h-screen bg-gradient-to-br from-primary-50 to-white flex items-center justify-center p-4;
+}
+
+.login-content {
+  @apply w-full max-w-md;
+}
+
+.login-card {
+  @apply p-8 rounded-xl shadow-lg;
+}
+
+.login-header {
+  @apply flex flex-col items-center text-center mb-8;
+}
+
+.logo {
+  @apply w-24 h-24 mb-6 rounded-full;
+}
+
+.login-header h1 {
+  @apply text-2xl font-bold text-gray-900 mb-2;
+}
+
+.login-header p {
+  @apply text-gray-600;
+}
+
+.login-form {
+  @apply space-y-4;
+}
+
+.form-options {
+  @apply flex justify-between items-center;
+}
+
+.forgot-password {
+  @apply text-sm text-primary-600 hover:text-primary-700 transition-colors;
+}
+
+.login-button {
+  @apply w-full py-3 flex items-center justify-center gap-2;
+}
+
+.spinner {
+  @apply animate-spin;
+}
+
+.social-login {
+  @apply mt-8;
+}
+
+.divider {
+  @apply text-center my-6;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  @apply absolute top-1/2 w-1/4 h-px bg-gray-300;
+}
+
+.divider::before {
+  @apply left-0;
+}
+
+.divider::after {
+  @apply right-0;
+}
+
+.divider span {
+  @apply bg-white px-4 text-sm text-gray-500;
+}
+
+.login-options {
+  @apply grid grid-cols-1 gap-4;
+}
+
+.login-options button {
+  @apply flex items-center justify-center gap-2 py-3;
+}
+
+.corporate-button {
+  @apply bg-primary-50 text-primary-700 hover:bg-primary-100 border border-primary-200;
+}
+
+.personal-button {
+  @apply bg-gray-50 text-gray-700 hover:bg-gray-100 border border-gray-200;
+}
+
+.signup-prompt {
+  @apply text-center mt-6 text-sm;
+}
+
+.signup-prompt span {
+  @apply text-gray-600;
+}
+
+.signup-prompt a {
+  @apply text-primary-600 hover:text-primary-700 ml-1 font-medium;
+}
+
+::ng-deep {
+  .mat-mdc-form-field {
+    @apply w-full;
+  }
+
+  .mat-mdc-card {
+    @apply bg-white;
+  }
+
+  .mat-mdc-checkbox {
+    @apply text-sm;
+  }
+}

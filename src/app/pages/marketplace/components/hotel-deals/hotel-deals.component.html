@@ -1,0 +1,72 @@
+<div class="hotel-deals">
+  <div class="deals-header">
+    <h2>Featured Hotel Deals</h2>
+    <div class="filters">
+      <button mat-button color="primary">
+        <mat-icon>filter_list</mat-icon>
+        Filter
+      </button>
+      <button mat-button color="primary">
+        <mat-icon>sort</mat-icon>
+        Sort
+      </button>
+    </div>
+  </div>
+
+  <div class="deals-grid">
+    <mat-card *ngFor="let hotel of hotels" class="hotel-card">
+      <div class="image-container">
+        <img [src]="hotel.image" 
+             [alt]="hotel.name" 
+             class="hotel-image"
+             (error)="hotel.image = 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b'">
+        <div class="image-placeholder" *ngIf="!hotel.image">
+          <mat-icon>hotel</mat-icon>
+          <span>No image available</span>
+        </div>
+      </div>
+      
+      <div class="discount-badge" *ngIf="hotel.discount_percentage">
+        {{hotel.discount_percentage}}% OFF
+      </div>
+
+      <mat-card-content>
+        <div class="hotel-info">
+          <h3 class="hotel-name">{{hotel.name}}</h3>
+          <p class="hotel-location">
+            <mat-icon>location_on</mat-icon>
+            {{hotel.location.city}}, {{hotel.location.country}}
+          </p>
+          
+          <div class="hotel-rating">
+            <mat-icon class="star-icon">star</mat-icon>
+            <span>{{hotel.rating}}</span>
+          </div>
+
+          <p class="hotel-description">{{hotel.description}}</p>
+
+          <div class="amenities">
+            <mat-chip-set>
+              <mat-chip *ngFor="let amenity of hotel.amenities">
+                {{amenity}}
+              </mat-chip>
+            </mat-chip-set>
+          </div>
+
+          <div class="price-info">
+            <div class="price">
+              <span class="amount">${{hotel.price_per_night}}</span>
+              <span class="period">per night</span>
+            </div>
+            <button 
+              mat-raised-button 
+              color="primary"
+              (click)="bookHotel(hotel)">
+              Book Now
+            </button>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

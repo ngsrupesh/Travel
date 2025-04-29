@@ -1,0 +1,135 @@
+.chat-widget {
+  @apply fixed bottom-6 right-6 z-50;
+}
+
+.chat-button {
+  @apply w-12 h-12 bg-primary-600 rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:bg-primary-700 transition-all duration-300;
+}
+
+.chat-button mat-icon {
+  @apply text-white text-2xl m-0;
+}
+
+.chat-window {
+  @apply fixed bottom-6 right-6 bg-white rounded-2xl shadow-2xl overflow-hidden;
+  @apply opacity-0 invisible scale-95 origin-bottom-right transition-all duration-300;
+  width: 320px;
+  height: 450px;
+}
+
+.chat-window.open {
+  @apply opacity-100 visible scale-100;
+}
+
+.chat-header {
+  @apply bg-primary-600 text-white p-3;
+}
+
+.header-content {
+  @apply space-y-1;
+}
+
+.header-top {
+  @apply flex items-center justify-between;
+}
+
+.header-top h3 {
+  @apply text-base font-semibold;
+}
+
+.close-button {
+  @apply p-1 rounded-full hover:bg-primary-500 transition-colors;
+}
+
+.close-button mat-icon {
+  @apply text-white;
+}
+
+.header-content p {
+  @apply text-xs text-primary-100 opacity-90;
+}
+
+.chat-messages {
+  @apply p-3 space-y-3 overflow-y-auto;
+  height: calc(100% - 120px);
+}
+
+.message {
+  @apply flex flex-col;
+}
+
+.message-content {
+  @apply max-w-[85%] rounded-2xl px-3 py-2;
+}
+
+.user-message {
+  @apply items-end;
+}
+
+.user-message .message-content {
+  @apply bg-primary-600 text-white;
+}
+
+.agent-message {
+  @apply items-start;
+}
+
+.agent-message .message-content {
+  @apply bg-gray-100 text-gray-800;
+}
+
+.message-time {
+  @apply block text-xs mt-1 text-gray-500;
+}
+
+.typing-indicator {
+  @apply flex items-center space-x-1 p-2 bg-gray-100 w-16 rounded-full mt-2;
+}
+
+.dot {
+  @apply w-1.5 h-1.5 bg-gray-400 rounded-full;
+  animation: bounce 1.4s infinite;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-3px);
+  }
+}
+
+.chat-input {
+  @apply absolute bottom-0 left-0 right-0 p-2 bg-white border-t border-gray-100;
+}
+
+.input-container {
+  @apply flex items-center gap-2;
+}
+
+.message-input {
+  @apply flex-1 bg-gray-50 rounded-full px-3 py-1.5 outline-none border-2 border-transparent focus:border-primary-100 transition-colors text-sm;
+}
+
+.send-button {
+  @apply w-8 h-8 bg-primary-600 rounded-full flex items-center justify-center text-white hover:bg-primary-700 transition-colors;
+}
+
+.send-button mat-icon {
+  @apply text-base;
+}
+
+::ng-deep {
+  .mat-mdc-form-field {
+    @apply hidden;
+  }
+}

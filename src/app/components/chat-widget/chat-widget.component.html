@@ -1,0 +1,62 @@
+<div class="chat-widget">
+  <!-- Chat Button -->
+  <div *ngIf="!isOpen" 
+       class="chat-button"
+       (click)="toggleChat()">
+    <mat-icon>chat</mat-icon>
+  </div>
+
+  <!-- Chat Window -->
+  <div class="chat-window" [class.open]="isOpen">
+    <div class="chat-header">
+      <div class="header-content">
+        <div class="header-top">
+          <h3>Chat with Us</h3>
+          <button class="close-button" (click)="toggleChat()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+        <p>We typically reply within a few minutes</p>
+      </div>
+    </div>
+
+    <div class="chat-messages" #messagesContainer>
+      <div *ngFor="let message of messages" 
+           class="message"
+           [class.user-message]="message.sender === 'user'"
+           [class.agent-message]="message.sender === 'agent'">
+        <div class="message-content">
+          <p>{{message.text}}</p>
+          <span class="message-time">
+            {{message.timestamp | date:'shortTime'}}
+          </span>
+        </div>
+      </div>
+
+      <div *ngIf="isTyping" class="message agent-message">
+        <div class="typing-indicator">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-input">
+      <div class="input-container">
+        <input 
+          type="text"
+          class="message-input"
+          [(ngModel)]="newMessage"
+          (keyup.enter)="sendMessage()"
+          placeholder="Type a message...">
+        <button 
+          class="send-button"
+          (click)="sendMessage()"
+          [disabled]="!newMessage.trim()">
+          <mat-icon>send</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

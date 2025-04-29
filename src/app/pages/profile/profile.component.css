@@ -1,0 +1,73 @@
+.profile-container {
+  @apply min-h-screen bg-gray-50 p-4 sm:p-6 md:p-8;
+}
+
+.profile-card {
+  @apply max-w-4xl mx-auto bg-white rounded-xl shadow-lg;
+}
+
+.profile-header {
+  @apply flex flex-col sm:flex-row items-center justify-between p-6 border-b border-gray-200;
+}
+
+.profile-avatar {
+  @apply relative mb-4 sm:mb-0;
+}
+
+.avatar-placeholder {
+  @apply w-32 h-32 rounded-full bg-gray-200 flex items-center justify-center;
+}
+
+.placeholder-icon {
+  @apply text-6xl text-gray-400;
+}
+
+.change-avatar-button {
+  @apply absolute bottom-0 right-0 transform translate-x-1/4;
+}
+
+.header-actions {
+  @apply flex gap-4;
+}
+
+.form-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 gap-4 p-6;
+}
+
+.full-width {
+  @apply col-span-1 sm:col-span-2;
+}
+
+.form-actions {
+  @apply flex justify-end p-6 pt-0;
+}
+
+::ng-deep {
+  .mat-mdc-form-field {
+    @apply w-full;
+  }
+
+  .mat-mdc-card {
+    @apply overflow-hidden;
+  }
+
+  .mat-mdc-form-field-disabled {
+    @apply bg-gray-50;
+  }
+
+  .mat-datepicker-toggle {
+    @apply text-gray-500;
+  }
+
+  .mat-calendar {
+    @apply bg-white rounded-lg shadow-lg;
+  }
+
+  .mat-calendar-body-selected {
+    @apply bg-primary-500;
+  }
+
+  .mat-calendar-body-today:not(.mat-calendar-body-selected) {
+    @apply border-primary-500;
+  }
+}

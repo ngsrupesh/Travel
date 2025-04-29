@@ -1,0 +1,105 @@
+.perks-content {
+  @apply space-y-8;
+}
+
+.header-section {
+  @apply bg-gradient-to-br from-primary-50 to-white rounded-lg p-6 mb-8;
+}
+
+.header-content {
+  @apply max-w-3xl;
+}
+
+.header-title {
+  @apply text-2xl font-bold text-gray-900 mb-4;
+}
+
+.header-description {
+  @apply text-lg text-gray-600 mb-6;
+}
+
+.benefits-list {
+  @apply space-y-3;
+}
+
+.benefit-item {
+  @apply flex items-center gap-2 text-gray-700;
+}
+
+.benefit-item mat-icon {
+  @apply text-primary-500;
+}
+
+.empty-state {
+  @apply flex flex-col items-center justify-center py-12 text-center;
+}
+
+.empty-icon {
+  @apply text-6xl text-gray-400 mb-4;
+}
+
+.empty-title {
+  @apply text-xl font-semibold text-gray-900 mb-6;
+}
+
+.perks-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.perk-card {
+  @apply bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200;
+}
+
+.perk-image {
+  @apply relative;
+}
+
+.perk-image img {
+  @apply w-full h-48 object-cover rounded-t-lg;
+}
+
+.perk-badge {
+  @apply absolute top-4 right-4 bg-primary-500 text-white px-3 py-1 rounded-full text-sm font-bold;
+}
+
+.perk-header {
+  @apply flex justify-between items-start mb-4;
+}
+
+.perk-title {
+  @apply text-xl font-bold text-gray-900;
+}
+
+.perk-description {
+  @apply text-gray-600 mb-4;
+}
+
+.perk-details {
+  @apply space-y-2;
+}
+
+.detail-row {
+  @apply flex items-center gap-2 text-gray-700;
+}
+
+mat-card-actions {
+  @apply flex justify-between p-4 border-t border-gray-100;
+}
+
+::ng-deep {
+  .mat-mdc-card {
+    @apply overflow-hidden;
+  }
+
+  .mat-mdc-card-content {
+    @apply p-4;
+  }
+
+  .mat-mdc-chip-set {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .mat-mdc-chip {
+    @apply text-sm;
+  }
+}

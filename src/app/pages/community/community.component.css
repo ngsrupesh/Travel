@@ -1,0 +1,77 @@
+.community-container {
+  @apply max-w-7xl mx-auto p-6;
+}
+
+.community-title {
+  @apply text-3xl font-bold text-gray-900 mb-8;
+}
+
+.tab-content-header {
+  @apply bg-gradient-to-br from-primary-50/30 via-primary-50/10 to-white py-16 px-12 mb-12;
+}
+
+.header-content {
+  @apply max-w-4xl mx-auto;
+}
+
+.header-title {
+  @apply text-3xl font-bold text-gray-900 mb-4 flex items-center gap-2;
+}
+
+.header-description {
+  @apply text-xl text-gray-600 mb-6 leading-relaxed;
+}
+
+.header-note {
+  @apply flex items-center gap-2 text-base text-gray-500;
+}
+
+.header-note mat-icon {
+  @apply text-primary-500;
+}
+
+.tab-icon {
+  @apply mr-2;
+}
+
+.tab-label {
+  @apply hidden sm:inline-block;
+}
+
+::ng-deep {
+  .mat-mdc-tab-group {
+    @apply bg-white rounded-lg shadow-sm overflow-hidden;
+  }
+
+  .mat-mdc-tab-header {
+    @apply bg-gray-50 border-b border-gray-200;
+  }
+
+  .mat-mdc-tab-body-content {
+    @apply p-6;
+  }
+
+  .mat-mdc-tab {
+    @apply text-gray-700;
+  }
+
+  .mat-mdc-tab-label-active {
+    @apply text-primary-700;
+  }
+
+  .mat-mdc-tab-body-wrapper {
+    @apply min-h-[500px];
+  }
+
+  .mat-mdc-tab-labels {
+    @apply gap-2;
+  }
+
+  .mat-mdc-tab-label {
+    @apply h-14;
+  }
+
+  .mat-mdc-tab-label-content {
+    @apply flex items-center;
+  }
+}

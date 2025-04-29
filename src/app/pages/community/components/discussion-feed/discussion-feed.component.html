@@ -1,0 +1,85 @@
+<div class="tab-content-header">
+  <div class="header-content">
+    <h2 class="header-title">
+      <mat-icon>forum</mat-icon>
+      Join the Conversation with Fellow Travelers
+    </h2>
+    <p class="header-description">
+      Ask questions, share tips, and exchange experiences with a global travel community.
+      Whether it's about visa processes, hidden gems, or packing hacks — connect, learn, and contribute.
+    </p>
+    <div class="header-note">
+      <mat-icon>security</mat-icon>
+      <span>Respectful discussions only. Let's keep this space helpful and friendly.</span>
+    </div>
+  </div>
+</div>
+
+<div class="discussion-feed">
+  <div class="feed-header">
+    <h2>Travel Discussions</h2>
+    <button mat-raised-button class="new-post-button">
+      <mat-icon>add</mat-icon>
+      Share Your Story
+    </button>
+  </div>
+
+  <div class="posts-grid">
+    <mat-card *ngFor="let post of posts" class="post-card">
+      <div class="post-header">
+        <div class="author-avatar">
+          <img [src]="post.avatar" [alt]="post.author">
+        </div>
+        <div class="post-meta">
+          <h3 class="post-title">{{post.title}}</h3>
+          <div class="post-author">
+            <span>{{post.author}}</span>
+            <span class="post-time">• 2 hours ago</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="post-content">
+        <p>{{post.content}}</p>
+      </div>
+
+      <div class="post-footer">
+        <div class="tags-container">
+          <span *ngFor="let tag of post.tags" class="tag">
+            #{{tag}}
+          </span>
+        </div>
+
+        <div class="post-stats">
+          <div class="stat">
+            <mat-icon>favorite</mat-icon>
+            <span class="stat-count">{{post.likes}}</span>
+          </div>
+          <div class="stat">
+            <mat-icon>comment</mat-icon>
+            <span class="stat-count">{{post.comments}}</span>
+          </div>
+          <div class="stat">
+            <mat-icon>share</mat-icon>
+            <span class="stat-count">{{post.shares || 0}}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="post-actions">
+        <button mat-button class="action-button" (click)="likePost(post.id)">
+          <mat-icon>favorite_border</mat-icon>
+          Like
+        </button>
+        <button mat-button class="action-button" (click)="commentOnPost(post.id)">
+          <mat-icon>comment</mat-icon>
+          Comment
+        </button>
+        <button mat-button class="action-button" (click)="sharePost(post.id)">
+          <mat-icon>share</mat-icon>
+          Share
+        </button>
+      </div>
+    </mat-card>
+  </div>
+</div>

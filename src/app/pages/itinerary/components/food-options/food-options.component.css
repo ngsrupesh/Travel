@@ -1,0 +1,73 @@
+.food-options-container {
+  @apply space-y-8;
+}
+
+.section-title {
+  @apply text-2xl font-bold text-gray-900;
+}
+
+.section-description {
+  @apply text-gray-600 text-lg mb-8;
+}
+
+.options-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+}
+
+.option-card {
+  @apply bg-white rounded-lg shadow-sm p-6;
+}
+
+.option-title {
+  @apply text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2;
+}
+
+.option-title mat-icon {
+  @apply text-primary-500;
+}
+
+.diet-types-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6;
+}
+
+.diet-type-card {
+  @apply p-4 rounded-lg border-2 border-transparent hover:border-primary-100 cursor-pointer transition-all;
+}
+
+.diet-type-card.selected {
+  @apply bg-primary-50 border-primary-500;
+}
+
+.diet-type-header {
+  @apply flex items-center gap-2 mb-2;
+}
+
+.diet-type-icon {
+  @apply text-2xl;
+}
+
+.diet-type-name {
+  @apply font-medium text-gray-900;
+}
+
+.diet-type-description {
+  @apply text-sm text-gray-600;
+}
+
+.button-container {
+  @apply flex justify-between mt-8;
+}
+
+::ng-deep {
+  .mat-mdc-form-field {
+    @apply w-full;
+  }
+
+  .mat-mdc-chip-set {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .mat-mdc-chip {
+    @apply text-sm;
+  }
+}
